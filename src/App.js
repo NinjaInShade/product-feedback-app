@@ -10,11 +10,14 @@ require('dotenv').config();
 const Home = lazy(() => import('./pages/Home'));
 
 function App() {
+  // const [currentUser, setCurrentUser] = useState({});
   const [feedbackData, setFeedbackData] = useState([]);
 
   useEffect(() => {
     // Simulates fetching data from API
     setFeedbackData(localData.productRequests);
+
+    // setCurrentUser(localData.currentUser);
   }, []);
 
   return (
