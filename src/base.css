@@ -1,0 +1,53 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  scroll-behavior: smooth;
+  font-size: 16px;
+
+  /* Primary */
+
+  /* Neutral */
+
+  /* Typography */
+  --h1: 1.75rem;
+
+  --body: 1rem;
+
+  /* Other */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: var(--h1);
+}
+
+.body {
+  font-size: var(--body);
+}
+
+button {
+  outline: none;
+  background: none;
+  border: none;
+}
+
+@media (max-width: 500px) {
+  :root {
+    --h1: 22px;
+
+    --body: 0.938rem;
+  }
+}
