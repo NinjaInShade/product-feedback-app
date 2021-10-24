@@ -27,16 +27,69 @@
   --grey-light: #f7f8fd;
 
   /* Typography */
+  --h1: 1.5rem;
+  --h1-lh: 35px;
+  --h1-ls: -0.33px;
 
-  /* Other */
+  --h2: 1.25rem;
+  --h2-lh: 29px;
+  --h2-ls: -0.25px;
+
+  --h3: 1.125rem;
+  --h3-lh: 26px;
+  --h3-ls: -0.25px;
+
+  --h4: 0.875rem;
+  --h4-lh: 20px;
+  --h4-ls: -0.2px;
+
+  --body: 1rem;
+  --body-lh: 23px;
+
+  --body-s: 0.938rem;
+  --body-s-lh: 22px;
+
+  --body-xs: 0.813rem;
+  --body-xs-lh: 19px;
 }
 
 h1 {
   font-size: var(--h1);
+  line-height: var(--h1-lh);
+  letter-spacing: var(--h1-ls);
+}
+
+h2 {
+  font-size: var(--h2);
+  line-height: var(--h2-lh);
+  letter-spacing: var(--h2-ls);
+}
+
+h3 {
+  font-size: var(--h3);
+  line-height: var(--h3-lh);
+  letter-spacing: var(--h3-ls);
+}
+
+h4 {
+  font-size: var(--h4);
+  line-height: var(--h4-lh);
+  letter-spacing: var(--h4-ls);
 }
 
 .body {
   font-size: var(--body);
+  line-height: var(--body);
+}
+
+.body-s {
+  font-size: var(--body-s);
+  line-height: var(--body-s-lh);
+}
+
+.body-xs {
+  font-size: var(--body-xs);
+  line-height: var(--body-xs-lh);
 }
 
 button {
