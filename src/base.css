@@ -1,5 +1,5 @@
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Jost', sans-serif;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
@@ -12,22 +12,23 @@
   font-size: 16px;
 
   /* Primary */
+  --purple: #ad1fea;
+
+  --blue: #4661e6;
+  --blue-light: #62bcfa;
+
+  --orange: #f49f85;
 
   /* Neutral */
+  --grey-darkest: #373f68;
+  --grey-darker: #3a4374;
+  --grey-dark: #647196;
+  --grey: #f2f4ff;
+  --grey-light: #f7f8fd;
 
   /* Typography */
-  --h1: 1.75rem;
-
-  --body: 1rem;
 
   /* Other */
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
 }
 
 h1 {
@@ -46,8 +47,5 @@ button {
 
 @media (max-width: 500px) {
   :root {
-    --h1: 22px;
-
-    --body: 0.938rem;
   }
 }
