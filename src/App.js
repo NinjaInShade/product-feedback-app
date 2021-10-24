@@ -1,6 +1,7 @@
-import React, { Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
+import localData from './data.json';
 import './styles/base.css';
 import './styles/buttons.css';
 
@@ -9,13 +10,20 @@ require('dotenv').config();
 const Home = lazy(() => import('./pages/Home'));
 
 function App() {
+  const [feedbackData, setFeedbackData] = useState([]);
+
+  useEffect(() => {
+    // Simulates fetching data from API
+    setFeedbackData(localData.productRequests);
+  }, []);
+
   return (
     <Router>
       <Suspense fallback={<LoadingSpinner />}>
         <Switch>
           {/* Entry page for application - the home page */}
           <Route path='/' exact>
-            <Home />
+            <Home feedbackData={feedbackData} />
           </Route>
 
           {/* Roadmap page */}
