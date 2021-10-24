@@ -1,13 +1,12 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
-import './base.css';
-import './buttons.css';
+import './styles/base.css';
+import './styles/buttons.css';
 
 require('dotenv').config();
 
-const Home = lazy(() => import('./pages/Home/Home'));
-const NoMatch = lazy(() => import('./pages/NoMatch/NoMatch'));
+const Home = lazy(() => import('./pages/Home'));
 
 function App() {
   return (
@@ -39,9 +38,9 @@ function App() {
             <FeedbackAdd />
           </Route> */}
 
-          {/* 404 page not found route ( any routes not matching go here ) */}
+          {/* 404 page not found route ( any routes not matching go back to home page ) */}
           <Route path='*'>
-            <NoMatch />
+            <Home />
           </Route>
         </Switch>
       </Suspense>

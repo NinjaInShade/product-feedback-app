@@ -5,7 +5,7 @@ import './LoadingSpinner.css';
 export default function LoadingSpinner() {
   return (
     <main className='page-center'>
-      <div class='lds-ring'>
+      <div className='lds-ring'>
         <div></div>
         <div></div>
         <div></div>

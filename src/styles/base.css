@@ -12,6 +12,8 @@
   font-size: 16px;
 
   /* Primary */
+  --radial-gradient: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #e84d70 0%, #a337f6 53.09%, #28a7ed 100%);
+
   --purple: #ad1fea;
 
   --blue: #4661e6;
@@ -51,6 +53,11 @@
 
   --body-xs: 0.813rem;
   --body-xs-lh: 19px;
+}
+
+body {
+  background-color: var(--grey-light);
+  min-height: 100vh;
 }
 
 h1 {

@@ -1,0 +1,6 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 95px 30px;
+}
