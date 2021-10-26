@@ -65,10 +65,6 @@ Users should be able to:
 - Desktop-first workflow-
 - React
 
-### What I learned
-
-Not done yet.
-
 ## Author
 
 - Website - [Leon Michalak](https://www.leonmichalak.dev)
