@@ -30,22 +30,22 @@ function App() {
           </Route>
 
           {/* Roadmap page */}
-          {/* <Route path='/' exact>
+          {/* <Route path='/roadmap' exact>
             <Roadmap />
           </Route> */}
 
           {/* Feedback detail page */}
-          {/* <Route path='/' exact>
+          {/* <Route path='/feedback/detail/:feedbackID' exact>
             <FeedbackDetail />
           </Route> */}
 
           {/* Edit feedback page */}
-          {/* <Route path='/' exact>
+          {/* <Route path='/feedback/edit/:feedbackID' exact>
             <FeedbackEdit />
           </Route> */}
 
           {/* Add new feedback page */}
-          {/* <Route path='/' exact>
+          {/* <Route path='/feedback/add' exact>
             <FeedbackAdd />
           </Route> */}
 

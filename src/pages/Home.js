@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/home.css';
 
 export default function Home({ feedbackData }) {
@@ -13,7 +14,9 @@ export default function Home({ feedbackData }) {
       <section className='home-right'>
         <nav className='home-right-nav'>
           <div></div>
-          <button className='btn btn-primary'>+ Add Feedback</button>
+          <Link to='/feedback/add' className='btn btn-primary'>
+            + Add Feedback
+          </Link>
         </nav>
       </section>
     </main>

@@ -19,7 +19,10 @@
   background-color: var(--purple);
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
+.btn-primary:hover {
   background-color: var(--purple-hover);
+}
+
+.btn-primary:focus {
+  outline: var(--purple-hover) dotted 2px;
 }
