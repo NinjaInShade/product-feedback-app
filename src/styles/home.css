@@ -2,5 +2,43 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  max-width: var(--max-width);
   padding: 95px 30px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-left {
+  margin-right: 30px;
+  max-width: 255px;
+  width: 100%;
+}
+
+.home-right {
+  width: 100%;
+}
+
+.home-left > *:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.home-left-intro {
+  background: var(--radial-gradient);
+  padding: 62px 24px 24px 24px;
+  border-radius: 10px;
+}
+
+.home-left-intro-title,
+.home-left-intro-subtitle {
+  color: #fff;
+}
+
+.home-left-intro-subtitle {
+  font-weight: 500;
+}
+
+.home-right-nav {
+  background-color: var(--grey-darkest);
+  padding: 14px 16px 14px 24px;
+  border-radius: 10px;
 }

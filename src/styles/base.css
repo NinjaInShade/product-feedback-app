@@ -53,6 +53,8 @@
 
   --body-xs: 0.813rem;
   --body-xs-lh: 19px;
+
+  --max-width: 1100px;
 }
 
 body {
