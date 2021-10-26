@@ -11,7 +11,10 @@ export default function Home({ feedbackData }) {
         </div>
       </section>
       <section className='home-right'>
-        <nav className='home-right-nav'></nav>
+        <nav className='home-right-nav'>
+          <div></div>
+          <button className='btn btn-primary'>+ Add Feedback</button>
+        </nav>
       </section>
     </main>
   );

@@ -1,6 +1,25 @@
 .btn {
   background: none;
+  cursor: pointer;
   outline: none;
   border: none;
-  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 10px;
+  min-width: 160px;
+  padding: 12px 15px;
+}
+
+.btn,
+.btn > * {
+  color: var(--grey);
+  font-weight: 700;
+}
+
+.btn-primary {
+  background-color: var(--purple);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--purple-hover);
 }

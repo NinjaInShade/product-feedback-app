@@ -15,15 +15,23 @@
   --radial-gradient: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #e84d70 0%, #a337f6 53.09%, #28a7ed 100%);
 
   --purple: #ad1fea;
+  --purple-hover: #c75af6;
 
   --blue: #4661e6;
+  --blue-hover: #7c91f9;
   --blue-light: #62bcfa;
 
   --orange: #f49f85;
 
+  --red: #d73737;
+  --red-hover: #e98888;
+
   /* Neutral */
   --grey-darkest: #373f68;
+
   --grey-darker: #3a4374;
+  --grey-darker-hover: #656ea3;
+
   --grey-dark: #647196;
   --grey: #f2f4ff;
   --grey-light: #f7f8fd;
