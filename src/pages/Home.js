@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/home.css';
 
 export default function Home({ feedbackData }) {
+  const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
+
+  const openSortDropdown = () => {
+    setSortDropdownOpen(!sortDropdownOpen);
+  };
+
   const suggestionsCount = feedbackData.reduce((acc, feedback) => {
     return feedback.status === 'suggestion' ? acc + 1 : acc;
   }, 0);
@@ -26,9 +32,9 @@ export default function Home({ feedbackData }) {
               />
             </svg>
             <h3 className='home-right-nav-suggestions'>{suggestionsCount} Suggestions</h3>
-            <button className='home-right-nav-dropdown-btn'>
+            <button className='home-right-nav-dropdown-btn' onClick={() => openSortDropdown()}>
               Sort by: <span>Most Upvotes</span>
-              <svg width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
+              <svg className={sortDropdownOpen && 'active'} width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
                 <path d='M1 1l4 4 4-4' stroke='#fff' stroke-width='2' fill='none' fill-rule='evenodd' />
               </svg>
             </button>
