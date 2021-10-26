@@ -45,3 +45,14 @@
   padding: 14px 16px 14px 24px;
   border-radius: 10px;
 }
+
+.home-right-nav-suggestions {
+  color: #fff;
+  margin: 0 38px 0 16px;
+}
+
+.home-right-nav-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

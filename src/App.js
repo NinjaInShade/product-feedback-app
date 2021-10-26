@@ -15,6 +15,7 @@ function App() {
 
   useEffect(() => {
     // Simulates fetching data from API
+    console.log(localData.productRequests);
     setFeedbackData(localData.productRequests);
 
     // setCurrentUser(localData.currentUser);
