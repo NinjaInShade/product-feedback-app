@@ -82,3 +82,7 @@
   transition: all 0.2s ease-in-out;
   transform: rotate(180deg);
 }
+
+.home-right-nav-dropdown-outer {
+  position: relative;
+}
