@@ -33,7 +33,10 @@
   --grey-darker-hover: #656ea3;
 
   --grey-dark: #647196;
+
   --grey: #f2f4ff;
+  --grey-75: hsl(231, 100%, 97%, 0.75);
+
   --grey-light: #f7f8fd;
 
   /* Typography */

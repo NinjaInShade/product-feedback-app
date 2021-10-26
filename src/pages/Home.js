@@ -26,6 +26,12 @@ export default function Home({ feedbackData }) {
               />
             </svg>
             <h3 className='home-right-nav-suggestions'>{suggestionsCount} Suggestions</h3>
+            <button className='home-right-nav-dropdown-btn'>
+              Sort by: <span>Most Upvotes</span>
+              <svg width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M1 1l4 4 4-4' stroke='#fff' stroke-width='2' fill='none' fill-rule='evenodd' />
+              </svg>
+            </button>
           </div>
           <Link to='/feedback/add' className='btn btn-primary'>
             + Add Feedback

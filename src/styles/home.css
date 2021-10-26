@@ -56,3 +56,19 @@
   justify-content: center;
   align-items: center;
 }
+
+.home-right-nav-dropdown-btn {
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+  font-size: var(--h4);
+}
+
+.home-right-nav-dropdown-btn span {
+  margin-right: 9px;
+  font-weight: 700;
+}
+
+.home-right-nav-dropdown-btn:hover {
+  color: var(--grey-75);
+}
