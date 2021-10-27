@@ -52,7 +52,7 @@ function App() {
 
           {/* 404 page not found route ( any routes not matching go back to home page ) */}
           <Route path='*'>
-            <Home />
+            <Home feedbackData={feedbackData} />
           </Route>
         </Switch>
       </Suspense>

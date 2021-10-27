@@ -30,6 +30,8 @@
   --grey-darkest: #373f68;
 
   --grey-darker: #3a4374;
+  --grey-darker-15: hsl(231, 33%, 34%, 0.15);
+
   --grey-darker-hover: #656ea3;
 
   --grey-dark: #647196;

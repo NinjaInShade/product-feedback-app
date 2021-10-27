@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HomeMainNav from '../components/HomeMainNav';
 import '../styles/home.css';
 
 export default function Home({ feedbackData }) {
+  const [sortBy, setSortBy] = useState('Most Upvotes');
+
   const suggestionsCount = feedbackData.reduce((acc, feedback) => {
     return feedback.status === 'suggestion' ? acc + 1 : acc;
   }, 0);
@@ -16,7 +18,7 @@ export default function Home({ feedbackData }) {
         </div>
       </section>
       <section className='home-right'>
-        <HomeMainNav suggestionsCount={suggestionsCount} />
+        <HomeMainNav suggestionsCount={suggestionsCount} sortBy={sortBy} setSortBy={setSortBy} />
         <main></main>
       </section>
     </div>

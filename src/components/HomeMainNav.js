@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/home-main-nav.css';
 
-export default function HomeMainNav({ suggestionsCount }) {
+export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
   const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
 
   const openSortDropdown = () => {
@@ -22,7 +22,7 @@ export default function HomeMainNav({ suggestionsCount }) {
         <h3 className='home-right-nav-suggestions'>{suggestionsCount} Suggestions</h3>
         <div className='home-right-nav-dropdown-outer'>
           <button className='home-right-nav-dropdown-btn' onClick={() => openSortDropdown()}>
-            Sort by: <span>Most Upvotes</span>
+            Sort by: <span>{sortBy}</span>
             <svg
               className={sortDropdownOpen ? 'active' : undefined}
               width='10'
@@ -32,6 +32,52 @@ export default function HomeMainNav({ suggestionsCount }) {
               <path d='M1 1l4 4 4-4' stroke='#fff' strokeWidth='2' fill='none' fillRule='evenodd' />
             </svg>
           </button>
+          <ul className={`home-right-nav-dropdown ${sortDropdownOpen ? 'active' : undefined}`}>
+            <li>
+              <button
+                className={`body ${sortBy === 'Most Upvotes' ? 'active' : undefined}`}
+                onClick={() => setSortBy('Most Upvotes')}
+              >
+                Most Upvotes{' '}
+                <svg xmlns='http://www.w3.org/2000/svg' width='13' height='11'>
+                  <path fill='none' stroke='#AD1FEA' strokeWidth='2' d='M1 5.233L4.522 9 12 1' />
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                className={`body ${sortBy === 'Least Upvotes' ? 'active' : undefined}`}
+                onClick={() => setSortBy('Least Upvotes')}
+              >
+                Least Upvotes{' '}
+                <svg xmlns='http://www.w3.org/2000/svg' width='13' height='11'>
+                  <path fill='none' stroke='#AD1FEA' strokeWidth='2' d='M1 5.233L4.522 9 12 1' />
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                className={`body ${sortBy === 'Most Comments' ? 'active' : undefined}`}
+                onClick={() => setSortBy('Most Comments')}
+              >
+                Most Comments{' '}
+                <svg xmlns='http://www.w3.org/2000/svg' width='13' height='11'>
+                  <path fill='none' stroke='#AD1FEA' strokeWidth='2' d='M1 5.233L4.522 9 12 1' />
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                className={`body ${sortBy === 'Least Comments' ? 'active' : undefined}`}
+                onClick={() => setSortBy('Least Comments')}
+              >
+                Least Comments{' '}
+                <svg xmlns='http://www.w3.org/2000/svg' width='13' height='11'>
+                  <path fill='none' stroke='#AD1FEA' strokeWidth='2' d='M1 5.233L4.522 9 12 1' />
+                </svg>
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
       <Link to='/feedback/add' className='btn btn-primary'>
