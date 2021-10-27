@@ -9,6 +9,14 @@ export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
     setSortDropdownOpen(!sortDropdownOpen);
   };
 
+  const setSortByHandler = (value) => {
+    setSortBy(value);
+
+    setTimeout(() => {
+      setSortDropdownOpen(false);
+    }, 500);
+  };
+
   return (
     <nav className='home-right-nav'>
       <div className='home-right-nav-inner'>
@@ -36,7 +44,7 @@ export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
             <li>
               <button
                 className={`body ${sortBy === 'Most Upvotes' ? 'active' : undefined}`}
-                onClick={() => setSortBy('Most Upvotes')}
+                onClick={() => setSortByHandler('Most Upvotes')}
               >
                 Most Upvotes{' '}
                 <svg xmlns='http://www.w3.org/2000/svg' width='13' height='11'>
@@ -47,7 +55,7 @@ export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
             <li>
               <button
                 className={`body ${sortBy === 'Least Upvotes' ? 'active' : undefined}`}
-                onClick={() => setSortBy('Least Upvotes')}
+                onClick={() => setSortByHandler('Least Upvotes')}
               >
                 Least Upvotes{' '}
                 <svg xmlns='http://www.w3.org/2000/svg' width='13' height='11'>
@@ -58,7 +66,7 @@ export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
             <li>
               <button
                 className={`body ${sortBy === 'Most Comments' ? 'active' : undefined}`}
-                onClick={() => setSortBy('Most Comments')}
+                onClick={() => setSortByHandler('Most Comments')}
               >
                 Most Comments{' '}
                 <svg xmlns='http://www.w3.org/2000/svg' width='13' height='11'>
@@ -69,7 +77,7 @@ export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
             <li>
               <button
                 className={`body ${sortBy === 'Least Comments' ? 'active' : undefined}`}
-                onClick={() => setSortBy('Least Comments')}
+                onClick={() => setSortByHandler('Least Comments')}
               >
                 Least Comments{' '}
                 <svg xmlns='http://www.w3.org/2000/svg' width='13' height='11'>
