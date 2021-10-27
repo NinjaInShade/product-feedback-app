@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Expected Behaviour
 
-- Suggestions page
+- (DONE) Suggestions page
   - Only product feedback requests with a status of `suggestion` should be shown on the Suggestions page.
 - Roadmap
   - Feedback requests with a status of `planned`, `in-progress`, or `live` should show up on the roadmap, and should be placed in the correct column based on their status.

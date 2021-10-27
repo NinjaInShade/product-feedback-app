@@ -53,6 +53,7 @@
   overflow: hidden;
   background-color: #fff;
   transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
   box-shadow: 0 10px 40px -7px hsla(230, 31%, 31%, 0.35);
   border-radius: 10px;
   width: 255px;
@@ -62,6 +63,7 @@
 }
 
 .home-right-nav-dropdown.active {
+  pointer-events: all;
   opacity: 1;
 }
 
