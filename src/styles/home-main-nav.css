@@ -62,9 +62,15 @@
   left: 0;
 }
 
-.home-right-nav-dropdown.active {
+.home-right-nav-dropdown.active,
+.home-right-nav-dropdown:focus,
+.home-right-nav-dropdown:focus-within {
   pointer-events: all;
   opacity: 1;
+}
+
+.home-right-nav-dropdown:focus {
+  outline: var(--grey-dark) dotted 2px;
 }
 
 .home-right-nav-dropdown li {
@@ -86,7 +92,8 @@
   padding: 12px 24px;
 }
 
-.home-right-nav-dropdown button:hover {
+.home-right-nav-dropdown button:hover,
+.home-right-nav-dropdown button:focus {
   color: var(--purple);
 }
 

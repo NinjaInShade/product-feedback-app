@@ -40,7 +40,7 @@ export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
               <path d='M1 1l4 4 4-4' stroke='#fff' strokeWidth='2' fill='none' fillRule='evenodd' />
             </svg>
           </button>
-          <ul className={`home-right-nav-dropdown ${sortDropdownOpen ? 'active' : undefined}`}>
+          <ul className={`home-right-nav-dropdown ${sortDropdownOpen ? 'active' : undefined}`} tabIndex='0'>
             <li>
               <button
                 className={`body ${sortBy === 'Most Upvotes' ? 'active' : undefined}`}
