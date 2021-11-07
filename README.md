@@ -72,6 +72,7 @@ Users should be able to:
 - CSS custom properties/vars
 - Desktop-first workflow-
 - React
+- React Router
 - Accessibility in mind
 
 ## Author
