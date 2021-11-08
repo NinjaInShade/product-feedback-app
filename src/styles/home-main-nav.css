@@ -5,6 +5,7 @@
   background-color: var(--grey-darkest);
   padding: 14px 16px 14px 24px;
   border-radius: 10px;
+  margin-bottom: 24px;
 }
 
 .home-right-nav-suggestions {

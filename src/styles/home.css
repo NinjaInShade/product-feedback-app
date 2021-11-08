@@ -36,3 +36,20 @@
 .home-left-intro-subtitle {
   font-weight: 500;
 }
+
+.home-no-feedback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 110px;
+  width: 100%;
+}
+
+.home-no-feedback-title {
+}
+
+.home-no-feedback-lead {
+}
