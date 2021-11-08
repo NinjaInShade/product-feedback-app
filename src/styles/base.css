@@ -101,7 +101,7 @@ h4 {
 
 .body {
   font-size: var(--body);
-  line-height: var(--body);
+  line-height: var(--body-lh);
 }
 
 .body-s {

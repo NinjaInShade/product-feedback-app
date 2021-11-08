@@ -49,7 +49,13 @@
 }
 
 .home-no-feedback-title {
+  color: var(--grey-darker);
+  margin: 54px 0 16px 0;
 }
 
 .home-no-feedback-lead {
+  text-align: center;
+  color: var(--grey-dark);
+  max-width: 410px;
+  margin-bottom: 48px;
 }
