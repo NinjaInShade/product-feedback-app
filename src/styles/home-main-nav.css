@@ -63,13 +63,12 @@
 }
 
 .home-right-nav-dropdown.active,
-.home-right-nav-dropdown:focus,
-.home-right-nav-dropdown:focus-within {
+.home-right-nav-dropdown:focus-visible:focus-within {
   pointer-events: all;
   opacity: 1;
 }
 
-.home-right-nav-dropdown:focus {
+.home-right-nav-dropdown:focus-visible {
   outline: var(--grey-dark) dotted 2px;
 }
 
