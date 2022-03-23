@@ -1,0 +1,16 @@
+.comments-count {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.comments-count b {
+  color: var(--grey-darker);
+  letter-spacing: -0.22px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.comments-count.empty b {
+  opacity: 50%;
+}
