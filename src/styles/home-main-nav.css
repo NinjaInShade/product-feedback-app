@@ -64,7 +64,7 @@
 }
 
 .home-right-nav-dropdown.active,
-.home-right-nav-dropdown:focus-visible:focus-within {
+.home-right-nav-dropdown:focus-within {
   pointer-events: all;
   opacity: 1;
 }
