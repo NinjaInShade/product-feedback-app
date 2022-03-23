@@ -5,4 +5,5 @@
   border-radius: 10px;
   padding: 6px 16px;
   font-weight: 600;
+  text-transform: capitalize;
 }

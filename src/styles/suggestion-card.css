@@ -18,6 +18,10 @@
   flex-grow: 1;
 }
 
+.suggestion-card .main:focus {
+  outline: var(--grey-dark) dotted 2px;
+}
+
 .suggestion-card .main h3 {
   color: var(--grey-darker);
 }
@@ -27,6 +31,7 @@
   margin: 4px 0 12px 0;
 }
 
-.suggestion-card .main:hover h3 {
+.suggestion-card .main:hover h3,
+.suggestion-card .main:focus h3 {
   color: var(--blue);
 }
