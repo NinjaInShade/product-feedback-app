@@ -1,0 +1,7 @@
+.suggestion-card {
+  display: block;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 28px 32px;
+  width: 100%;
+}

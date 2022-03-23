@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import HomeMainNav from '../components/HomeMainNav';
+import HomeMainNav from '../components/layout/HomeMainNav.js';
 import IllustrationEmpty from '../assets/suggestions/illustration-empty.svg';
 import '../styles/home.css';
+import SuggestionCard from '../components/SuggestionCard.js';
 
 // TODO: Responsive view for no suggestions view
 
 export default function Home({ feedbackData }) {
+  const [feedbacks, setFeedbacks] = useState(feedbackData);
   const [sortBy, setSortBy] = useState('Most Upvotes');
 
-  const suggestionsCount = feedbackData.reduce((acc, feedback) => {
+  const suggestionsCount = feedbacks.reduce((acc, feedback) => {
     return feedback.status === 'suggestion' ? acc + 1 : acc;
   }, 0);
 
@@ -25,7 +27,15 @@ export default function Home({ feedbackData }) {
         <HomeMainNav suggestionsCount={suggestionsCount} sortBy={sortBy} setSortBy={setSortBy} />
         <main>
           {suggestionsCount > 1 ? (
-            <div></div>
+            <ul className='suggestions'>
+              {feedbacks.map((feedback) => {
+                return feedback.status === 'suggestion' ? (
+                  <li key={feedback.id}>
+                    <SuggestionCard suggestion={feedback} />
+                  </li>
+                ) : null;
+              })}
+            </ul>
           ) : (
             <div className='home-no-feedback'>
               <img

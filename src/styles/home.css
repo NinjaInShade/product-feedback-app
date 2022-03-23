@@ -59,3 +59,11 @@
   max-width: 410px;
   margin-bottom: 48px;
 }
+
+.suggestions {
+  margin-top: 24px;
+}
+
+.suggestions li:not(:last-child) {
+  margin-bottom: 20px;
+}

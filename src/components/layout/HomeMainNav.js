@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/home-main-nav.css';
+import '../../styles/home-main-nav.css';
 
 export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
   const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
@@ -40,7 +40,10 @@ export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
               <path d='M1 1l4 4 4-4' stroke='#fff' strokeWidth='2' fill='none' fillRule='evenodd' />
             </svg>
           </button>
-          <ul className={`home-right-nav-dropdown ${sortDropdownOpen ? 'active' : undefined}`} tabIndex='0'>
+          <ul
+            className={`home-right-nav-dropdown ${sortDropdownOpen ? 'active' : undefined}`}
+            tabIndex='0'
+          >
             <li>
               <button
                 className={`body ${sortBy === 'Most Upvotes' ? 'active' : undefined}`}
