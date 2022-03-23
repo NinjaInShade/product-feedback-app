@@ -6,9 +6,6 @@ import Tab from './Tab';
 import UpvoteBtn from './UpvoteBtn';
 
 export default function SuggestionCard({ suggestion, updateSuggestion }) {
-  console.log(suggestion.comments);
-  const commentCount = suggestion.comments ? suggestion.comments.length : 0;
-
   return (
     <div className='suggestion-card'>
       <UpvoteBtn suggestion={suggestion} updateSuggestion={updateSuggestion} />
@@ -17,7 +14,7 @@ export default function SuggestionCard({ suggestion, updateSuggestion }) {
         <p className='body'>{suggestion.description}</p>
         <Tab title={suggestion.category} />
       </Link>
-      <CommentsCount count={commentCount} />
+      <CommentsCount count={suggestion.comments.length} />
     </div>
   );
 }

@@ -11,6 +11,30 @@ export default function Home({ suggestionsData }) {
   const [suggestions, setSuggestions] = useState(suggestionsData);
   const [sortBy, setSortBy] = useState('Most Upvotes');
 
+  const setSortByHandler = (sortBySelected) => {
+    setSortBy(sortBySelected);
+
+    const newSuggestions = suggestions;
+
+    if (sortBySelected === 'Most Upvotes') {
+      newSuggestions.sort((a, b) => b.upvotes - a.upvotes);
+    }
+
+    if (sortBySelected === 'Least Upvotes') {
+      newSuggestions.sort((a, b) => a.upvotes - b.upvotes);
+    }
+
+    if (sortBySelected === 'Most Comments') {
+      newSuggestions.sort((a, b) => b.comments.length - a.comments.length);
+    }
+
+    if (sortBySelected === 'Least Comments') {
+      newSuggestions.sort((a, b) => a.comments.length - b.comments.length);
+    }
+
+    return setSuggestions(newSuggestions);
+  };
+
   const updateSuggestionsHandler = (updatedSuggestion) => {
     setSuggestions(
       suggestions.map((suggestion) => {
@@ -32,7 +56,11 @@ export default function Home({ suggestionsData }) {
         </div>
       </section>
       <section className='home-right'>
-        <HomeMainNav suggestionsCount={suggestionsCount} sortBy={sortBy} setSortBy={setSortBy} />
+        <HomeMainNav
+          suggestionsCount={suggestionsCount}
+          sortBy={sortBy}
+          setSortBy={setSortByHandler}
+        />
         <main>
           {suggestionsCount > 1 ? (
             <ul className='suggestions'>
