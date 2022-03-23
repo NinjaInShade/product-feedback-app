@@ -7,11 +7,11 @@ import SuggestionCard from '../components/SuggestionCard.js';
 
 // TODO: Responsive view for no suggestions view
 
-export default function Home({ feedbackData }) {
-  const [feedbacks, setFeedbacks] = useState(feedbackData);
+export default function Home({ suggestionsData }) {
+  const [suggestions, setSuggestions] = useState(suggestionsData);
   const [sortBy, setSortBy] = useState('Most Upvotes');
 
-  const suggestionsCount = feedbacks.reduce((acc, feedback) => {
+  const suggestionsCount = suggestions.reduce((acc, feedback) => {
     return feedback.status === 'suggestion' ? acc + 1 : acc;
   }, 0);
 
@@ -28,12 +28,12 @@ export default function Home({ feedbackData }) {
         <main>
           {suggestionsCount > 1 ? (
             <ul className='suggestions'>
-              {feedbacks.map((feedback) => {
-                return feedback.status === 'suggestion' ? (
-                  <li key={feedback.id}>
-                    <SuggestionCard suggestion={feedback} />
+              {suggestions.map((suggestion) => {
+                return (
+                  <li key={suggestion.id}>
+                    <SuggestionCard suggestion />
                   </li>
-                ) : null;
+                );
               })}
             </ul>
           ) : (

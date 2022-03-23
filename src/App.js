@@ -13,10 +13,16 @@ function App() {
   // const [currentUser, setCurrentUser] = useState({});
   const [feedbackData, setFeedbackData] = useState([]);
 
+  const [suggestions, setSuggestions] = useState([]);
+
   useEffect(() => {
     // Simulates fetching data from API
     console.log(localData.productRequests);
     setFeedbackData(localData.productRequests);
+
+    setSuggestions(
+      localData.productRequests.filter((productRequest) => productRequest.status === 'suggestion')
+    );
 
     // setCurrentUser(localData.currentUser);
   }, []);
@@ -27,7 +33,7 @@ function App() {
         <Switch>
           {/* Entry page for application - the home page */}
           <Route path='/' exact>
-            <Home feedbackData={feedbackData} />
+            <Home suggestionsData={suggestions} />
           </Route>
 
           {/* Roadmap page */}
