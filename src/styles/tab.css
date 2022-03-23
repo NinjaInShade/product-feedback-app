@@ -1,0 +1,8 @@
+.tab {
+  display: inline-block;
+  background-color: var(--grey);
+  color: var(--blue);
+  border-radius: 10px;
+  padding: 6px 16px;
+  font-weight: 600;
+}

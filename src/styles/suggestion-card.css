@@ -13,5 +13,20 @@
 }
 
 .suggestion-card .main {
+  transition: all 0.2s ease-in-out;
   margin: 0 40px;
+  flex-grow: 1;
+}
+
+.suggestion-card .main h3 {
+  color: var(--grey-darker);
+}
+
+.suggestion-card .main p {
+  color: var(--grey-dark);
+  margin: 4px 0 12px 0;
+}
+
+.suggestion-card .main:hover h3 {
+  color: var(--blue);
 }
