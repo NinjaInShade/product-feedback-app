@@ -12,7 +12,12 @@
   font-size: 16px;
 
   /* Primary */
-  --radial-gradient: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #e84d70 0%, #a337f6 53.09%, #28a7ed 100%);
+  --radial-gradient: radial-gradient(
+    128.88% 128.88% at 103.9% -10.39%,
+    #e84d70 0%,
+    #a337f6 53.09%,
+    #28a7ed 100%
+  );
 
   --purple: #ad1fea;
   --purple-hover: #c75af6;
@@ -35,6 +40,8 @@
   --grey-darker-hover: #656ea3;
 
   --grey-dark: #647196;
+
+  --grey-hover: #cfd7ff;
 
   --grey: #f2f4ff;
   --grey-75: hsl(231, 100%, 97%, 0.75);

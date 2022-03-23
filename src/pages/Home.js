@@ -11,6 +11,14 @@ export default function Home({ suggestionsData }) {
   const [suggestions, setSuggestions] = useState(suggestionsData);
   const [sortBy, setSortBy] = useState('Most Upvotes');
 
+  const updateSuggestionsHandler = (updatedSuggestion) => {
+    setSuggestions(
+      suggestions.map((suggestion) => {
+        return suggestion.id === updatedSuggestion.id ? updatedSuggestion : suggestion;
+      })
+    );
+  };
+
   const suggestionsCount = suggestions.reduce((acc, feedback) => {
     return feedback.status === 'suggestion' ? acc + 1 : acc;
   }, 0);
@@ -31,7 +39,10 @@ export default function Home({ suggestionsData }) {
               {suggestions.map((suggestion) => {
                 return (
                   <li key={suggestion.id}>
-                    <SuggestionCard suggestion />
+                    <SuggestionCard
+                      suggestion={suggestion}
+                      updateSuggestion={updateSuggestionsHandler}
+                    />
                   </li>
                 );
               })}

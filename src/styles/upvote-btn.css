@@ -1,0 +1,43 @@
+.upvote-btn {
+  transition: all 0.2s ease-in-out;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--grey);
+  border-radius: 10px;
+  padding: 12px;
+  width: 40px;
+}
+
+.upvote-btn b {
+  color: var(--grey-darker);
+  letter-spacing: -0.18px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.upvote-btn:hover {
+  background-color: var(--grey-hover);
+}
+
+.upvote-btn:focus {
+  outline: var(--blue) dotted 2px;
+}
+
+.upvote-btn.upvoted {
+  background-color: var(--blue);
+}
+
+.upvote-btn.upvoted b {
+  color: #fff;
+}
+
+.upvote-btn.upvoted svg path {
+  stroke: #fff;
+}
+
+.upvote-btn.upvoted:focus {
+  outline: var(--grey-darkest) dotted 2px;
+}
