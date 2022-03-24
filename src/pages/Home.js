@@ -58,11 +58,16 @@ export default function Home({ suggestionsData }) {
 
   const updateSuggestionsHandler = (activeTab) => {
     if (activeTab === 'all') {
-      return setSuggestions(suggestionsData);
+      return setSuggestions(suggestionsData, () => {
+        setSortByHandler(sortBy);
+      });
     }
 
     return setSuggestions(
-      suggestionsData.filter((suggestion) => suggestion.category === activeTab)
+      suggestionsData.filter((suggestion) => suggestion.category === activeTab),
+      () => {
+        setSortByHandler(sortBy);
+      }
     );
   };
 
