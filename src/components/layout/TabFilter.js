@@ -2,7 +2,7 @@ import React from 'react';
 import Tab from '../Tab.js';
 import '../../styles/tab-filter.css';
 
-export default function TabFilter({ filterTabs, setFilterTabs }) {
+export default function TabFilter({ filterTabs, setFilterTabs, updateSuggestions }) {
   const updateActiveTab = (name) => {
     setFilterTabs(
       filterTabs.map((filterTab) => {
@@ -13,6 +13,8 @@ export default function TabFilter({ filterTabs, setFilterTabs }) {
         return { ...filterTab, active: false };
       })
     );
+
+    updateSuggestions(name);
   };
 
   return filterTabs ? (

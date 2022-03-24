@@ -56,6 +56,16 @@ export default function Home({ suggestionsData }) {
     return setSuggestions(newSuggestions);
   };
 
+  const updateSuggestionsHandler = (activeTab) => {
+    if (activeTab === 'all') {
+      return setSuggestions(suggestionsData);
+    }
+
+    return setSuggestions(
+      suggestionsData.filter((suggestion) => suggestion.category === activeTab)
+    );
+  };
+
   const updateSuggestionHandler = (updatedSuggestion) => {
     setSuggestions(
       suggestions.map((suggestion) => {
@@ -64,10 +74,6 @@ export default function Home({ suggestionsData }) {
     );
   };
 
-  const suggestionsCount = suggestions.reduce((acc, feedback) => {
-    return feedback.status === 'suggestion' ? acc + 1 : acc;
-  }, 0);
-
   return (
     <div className='home'>
       <section className='home-left'>
@@ -75,16 +81,20 @@ export default function Home({ suggestionsData }) {
           <h2 className='home-left-intro-title'>Frontend Mentor</h2>
           <p className='body-s home-left-intro-subtitle'>Feedback board</p>
         </div>
-        <TabFilter filterTabs={filterTabs} setFilterTabs={setFilterTabs} />
+        <TabFilter
+          filterTabs={filterTabs}
+          setFilterTabs={setFilterTabs}
+          updateSuggestions={updateSuggestionsHandler}
+        />
       </section>
       <section className='home-right'>
         <HomeMainNav
-          suggestionsCount={suggestionsCount}
+          suggestionsCount={suggestions.length}
           sortBy={sortBy}
           setSortBy={setSortByHandler}
         />
         <main>
-          {suggestionsCount > 1 ? (
+          {suggestions.length > 0 ? (
             <ul className='suggestions'>
               {suggestions.map((suggestion) => {
                 return (
