@@ -1,9 +1,31 @@
 .tab {
   display: inline-block;
+  text-transform: capitalize;
   background-color: var(--grey);
   color: var(--blue);
   border-radius: 10px;
   padding: 6px 16px;
   font-weight: 600;
-  text-transform: capitalize;
+}
+
+.tab-btn {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.tab-btn:focus-visible {
+  outline: var(--blue) dotted 2px;
+}
+
+.tab-btn.active:focus-visible {
+  outline: var(--grey-darkest) dotted 2px;
+}
+
+.tab-btn:hover {
+  background-color: var(--grey-hover);
+}
+
+.tab-btn.active {
+  background-color: var(--blue);
+  color: #fff;
 }

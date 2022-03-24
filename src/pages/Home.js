@@ -1,15 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HomeMainNav from '../components/layout/HomeMainNav.js';
 import IllustrationEmpty from '../assets/suggestions/illustration-empty.svg';
-import '../styles/home.css';
 import SuggestionCard from '../components/SuggestionCard.js';
+import TabFilter from '../components/layout/TabFilter.js';
+import '../styles/home.css';
 
 // TODO: Responsive view for no suggestions view
 
 export default function Home({ suggestionsData }) {
   const [suggestions, setSuggestions] = useState(suggestionsData);
   const [sortBy, setSortBy] = useState('Most Upvotes');
+  const [filterTabs, setFilterTabs] = useState();
+
+  // Gather up all unique tabs
+  useEffect(() => {
+    let uniqueTabs = [
+      'all',
+      ...new Set(suggestionsData.map((suggestionData) => suggestionData.category)),
+    ];
+
+    uniqueTabs = uniqueTabs.map((tab) => {
+      // all active by default
+      if (tab === 'all') {
+        return { name: tab, active: true };
+      }
+
+      return { name: tab, active: false };
+    });
+
+    setFilterTabs(uniqueTabs);
+  }, [suggestionsData]);
 
   const setSortByHandler = (sortBySelected) => {
     setSortBy(sortBySelected);
@@ -35,7 +56,7 @@ export default function Home({ suggestionsData }) {
     return setSuggestions(newSuggestions);
   };
 
-  const updateSuggestionsHandler = (updatedSuggestion) => {
+  const updateSuggestionHandler = (updatedSuggestion) => {
     setSuggestions(
       suggestions.map((suggestion) => {
         return suggestion.id === updatedSuggestion.id ? updatedSuggestion : suggestion;
@@ -54,6 +75,7 @@ export default function Home({ suggestionsData }) {
           <h2 className='home-left-intro-title'>Frontend Mentor</h2>
           <p className='body-s home-left-intro-subtitle'>Feedback board</p>
         </div>
+        <TabFilter filterTabs={filterTabs} setFilterTabs={setFilterTabs} />
       </section>
       <section className='home-right'>
         <HomeMainNav
@@ -69,7 +91,7 @@ export default function Home({ suggestionsData }) {
                   <li key={suggestion.id}>
                     <SuggestionCard
                       suggestion={suggestion}
-                      updateSuggestion={updateSuggestionsHandler}
+                      updateSuggestion={updateSuggestionHandler}
                     />
                   </li>
                 );
