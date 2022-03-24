@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import HomeMainNav from '../components/layout/HomeMainNav.js';
 import IllustrationEmpty from '../assets/suggestions/illustration-empty.svg';
@@ -32,42 +32,44 @@ export default function Home({ suggestionsData }) {
     setFilterTabs(uniqueTabs);
   }, [suggestionsData]);
 
-  const setSortByHandler = (sortBySelected) => {
-    setSortBy(sortBySelected);
+  const setSortByHandler = useCallback(
+    (sortBySelected) => {
+      setSortBy(sortBySelected);
 
-    const newSuggestions = suggestions;
+      const newSuggestions = suggestions;
 
-    if (sortBySelected === 'Most Upvotes') {
-      newSuggestions.sort((a, b) => b.upvotes - a.upvotes);
-    }
+      if (sortBySelected === 'Most Upvotes') {
+        newSuggestions.sort((a, b) => b.upvotes - a.upvotes);
+      }
 
-    if (sortBySelected === 'Least Upvotes') {
-      newSuggestions.sort((a, b) => a.upvotes - b.upvotes);
-    }
+      if (sortBySelected === 'Least Upvotes') {
+        newSuggestions.sort((a, b) => a.upvotes - b.upvotes);
+      }
 
-    if (sortBySelected === 'Most Comments') {
-      newSuggestions.sort((a, b) => b.comments.length - a.comments.length);
-    }
+      if (sortBySelected === 'Most Comments') {
+        newSuggestions.sort((a, b) => b.comments.length - a.comments.length);
+      }
 
-    if (sortBySelected === 'Least Comments') {
-      newSuggestions.sort((a, b) => a.comments.length - b.comments.length);
-    }
+      if (sortBySelected === 'Least Comments') {
+        newSuggestions.sort((a, b) => a.comments.length - b.comments.length);
+      }
 
-    return setSuggestions(newSuggestions);
-  };
+      return setSuggestions(newSuggestions);
+    },
+    [suggestions]
+  );
+
+  useEffect(() => {
+    setSortByHandler(sortBy);
+  }, [suggestions, sortBy, setSortByHandler]);
 
   const updateSuggestionsHandler = (activeTab) => {
     if (activeTab === 'all') {
-      return setSuggestions(suggestionsData, () => {
-        setSortByHandler(sortBy);
-      });
+      return setSuggestions(suggestionsData);
     }
 
     return setSuggestions(
-      suggestionsData.filter((suggestion) => suggestion.category === activeTab),
-      () => {
-        setSortByHandler(sortBy);
-      }
+      suggestionsData.filter((suggestion) => suggestion.category === activeTab)
     );
   };
 
