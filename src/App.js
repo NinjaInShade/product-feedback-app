@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import localData from './data.json';
+import CollectObjectValues from './CollectObjectValues.js';
 import './styles/base.css';
 import './styles/buttons.css';
 
@@ -16,37 +17,19 @@ function App() {
   const [roadmapCount, setRoadmapCount] = useState();
 
   useEffect(() => {
-    let roadmapCountTemp = {
-      Planned: 0,
-      'In-Progress': 0,
-      Live: 0,
-    };
-
     // Simulates fetching data from API
-    console.log(localData.productRequests);
-    setFeedbackData(localData.productRequests);
 
-    setSuggestions(
-      localData.productRequests.filter((productRequest) => productRequest.status === 'suggestion')
-    );
+    const requests = localData.productRequests;
+    console.log(requests);
 
-    localData.productRequests.forEach((item) => {
-      switch (item.status) {
-        case 'planned':
-          roadmapCountTemp.Planned += 1;
-          break;
-        case 'in-progress':
-          roadmapCountTemp['In-Progress'] += 1;
-          break;
-        case 'live':
-          roadmapCountTemp.Live += 1;
-          break;
-        default:
-          break;
-      }
+    setFeedbackData(requests);
+    setSuggestions(requests.filter((productRequest) => productRequest.status === 'suggestion'));
+
+    setRoadmapCount({
+      Planned: CollectObjectValues(requests, 'status', 'planned'),
+      'In-Progress': CollectObjectValues(requests, 'status', 'in-progress'),
+      Live: CollectObjectValues(requests, 'status', 'live'),
     });
-
-    setRoadmapCount(roadmapCountTemp);
   }, []);
 
   return (
