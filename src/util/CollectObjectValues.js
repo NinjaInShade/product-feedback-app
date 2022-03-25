@@ -1,4 +1,5 @@
-// From array of objects, given the object key, count how many times a particular value comes up in that key
+// From array of objects, given the object key,
+// count how many times a particular value comes up within whole array
 
 const CollectObjectValues = (arr, key, value) => {
   return arr.reduce((prev, curr) => {
