@@ -29,3 +29,47 @@
 .roadmap a:focus {
   outline: var(--blue) dotted 2px;
 }
+
+.status-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-title-container div {
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+}
+
+.status-title-container #orange {
+  background-color: var(--orange);
+}
+
+.status-title-container #purple {
+  background-color: var(--purple);
+}
+
+.status-title-container #blue {
+  background-color: var(--blue-light);
+}
+
+.status-title-container p {
+  color: var(--grey-dark);
+  margin-left: 16px;
+}
+
+.status-count {
+  color: var(--grey-dark);
+  font-weight: 700;
+}
+
+.status-list li:not(:last-child) {
+  margin-bottom: 8px;
+}

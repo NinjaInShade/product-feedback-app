@@ -13,6 +13,29 @@ export default function Roadmap({ roadmapCount }) {
           View
         </Link>
       </header>
+      <ul className='status-list'>
+        <li>
+          <div className='status-title-container'>
+            <div id='orange'></div>
+            <p className='body'>Planned</p>
+          </div>
+          <p className='body status-count'>{roadmapCount.Planned}</p>
+        </li>
+        <li>
+          <div className='status-title-container'>
+            <div id='purple'></div>
+            <p className='body'>In-Progress</p>
+          </div>
+          <p className='body status-count'>{roadmapCount['In-Progress']}</p>
+        </li>
+        <li>
+          <div className='status-title-container'>
+            <div id='blue'></div>
+            <p className='body'>Live</p>
+          </div>
+          <p className='body status-count'>{roadmapCount.Live}</p>
+        </li>
+      </ul>
     </div>
   );
 }
