@@ -1,0 +1,31 @@
+.roadmap {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.roadmap header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.roadmap .title {
+  color: var(--grey-darker);
+}
+
+.roadmap a {
+  transition: 0.2s ease-in-out;
+  text-decoration: underline;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.roadmap a:hover {
+  color: var(--blue-hover);
+}
+
+.roadmap a:focus {
+  outline: var(--blue) dotted 2px;
+}

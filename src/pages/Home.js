@@ -4,11 +4,12 @@ import HomeMainNav from '../components/layout/HomeMainNav.js';
 import IllustrationEmpty from '../assets/suggestions/illustration-empty.svg';
 import SuggestionCard from '../components/SuggestionCard.js';
 import TabFilter from '../components/layout/TabFilter.js';
+import Roadmap from '../components/layout/Roadmap.js';
 import '../styles/home.css';
 
 // TODO: Responsive view for no suggestions view
 
-export default function Home({ suggestionsData }) {
+export default function Home({ suggestionsData, roadmapCount }) {
   const [suggestions, setSuggestions] = useState(suggestionsData);
   const [sortBy, setSortBy] = useState('Most Upvotes');
   const [filterTabs, setFilterTabs] = useState();
@@ -93,6 +94,7 @@ export default function Home({ suggestionsData }) {
           setFilterTabs={setFilterTabs}
           updateSuggestions={updateSuggestionsHandler}
         />
+        <Roadmap roadmapCount={roadmapCount} />
       </section>
       <section className='home-right'>
         <HomeMainNav
