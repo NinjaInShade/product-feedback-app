@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: flex-start;
   max-width: var(--max-width);
-  padding: 95px 30px;
+  padding: 95px 40px;
   margin: 0 auto;
   width: 100%;
 }
@@ -66,4 +66,36 @@
 
 .suggestions li:not(:last-child) {
   margin-bottom: 20px;
+}
+
+@media (max-width: 950px) {
+  .home {
+    flex-direction: column;
+    padding: 56px 40px;
+  }
+
+  .home-left {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    max-width: none;
+    margin: 0 0 40px 0;
+  }
+
+  .home-left > *:not(:last-child) {
+    margin: 0 10px 0 0;
+    flex-grow: 1;
+  }
+
+  .home-left-intro {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    min-width: 225px;
+    padding: 24px;
+  }
+
+  .suggestions li:not(:last-child) {
+    margin-bottom: 16px;
+  }
 }

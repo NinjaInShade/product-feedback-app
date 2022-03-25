@@ -14,8 +14,8 @@ function App() {
   const [suggestions, setSuggestions] = useState([]);
   const [roadmapCount, setRoadmapCount] = useState();
 
+  // Simulates fetching data from API and extracting needed data
   useEffect(() => {
-    // Simulates fetching data from API
     const requests = localData.productRequests;
 
     setSuggestions(requests.filter((productRequest) => productRequest.status === 'suggestion'));

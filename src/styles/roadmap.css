@@ -73,3 +73,9 @@
 .status-list li:not(:last-child) {
   margin-bottom: 8px;
 }
+
+@media (max-width: 950px) {
+  .roadmap {
+    min-width: 225px;
+  }
+}

@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import '../../styles/roadmap.css';
 
 export default function Roadmap({ roadmapCount }) {
-  console.log(roadmapCount);
-
   return (
     <div className='roadmap'>
       <header>

@@ -7,6 +7,12 @@
   row-gap: 14px;
   background-color: #fff;
   border-radius: 10px;
-  margin: 24px 0;
   padding: 24px;
+}
+
+@media (max-width: 950px) {
+  .tab-filter {
+    align-items: flex-start;
+    align-content: flex-start;
+  }
 }

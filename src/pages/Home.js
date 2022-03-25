@@ -8,6 +8,7 @@ import Roadmap from '../components/layout/Roadmap.js';
 import '../styles/home.css';
 
 // TODO: Responsive view for no suggestions view
+// TODO: Look for optimisations and tidy code
 
 export default function Home({ suggestionsData, roadmapCount }) {
   const [suggestions, setSuggestions] = useState(suggestionsData);
@@ -86,8 +87,10 @@ export default function Home({ suggestionsData, roadmapCount }) {
     <div className='home'>
       <section className='home-left'>
         <div className='home-left-intro'>
-          <h2 className='home-left-intro-title'>Frontend Mentor</h2>
-          <p className='body-s home-left-intro-subtitle'>Feedback board</p>
+          <div>
+            <h2 className='home-left-intro-title'>Frontend Mentor</h2>
+            <p className='body-s home-left-intro-subtitle'>Feedback board</p>
+          </div>
         </div>
         <TabFilter
           filterTabs={filterTabs}
