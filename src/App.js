@@ -11,20 +11,36 @@ require('dotenv').config();
 const Home = lazy(() => import('./pages/Home'));
 
 function App() {
-  const [suggestions, setSuggestions] = useState([]);
-  const [roadmapCount, setRoadmapCount] = useState();
+  const [suggestions, setSuggestions] = useState([{}]);
+  const [uniqueCategories, setUniqueCategories] = useState([{}]);
+  const [statusCount, setStatusCount] = useState({});
 
   // Simulates fetching data from API and extracting needed data
   useEffect(() => {
     const requests = localData.productRequests;
 
-    setSuggestions(requests.filter((productRequest) => productRequest.status === 'suggestion'));
+    const filteredSuggestions = requests.filter(
+      (productRequest) => productRequest.status === 'suggestion'
+    );
 
-    setRoadmapCount({
+    const filteredUniqueCategories = [
+      'all',
+      'UI',
+      'UX',
+      ...new Set(filteredSuggestions.map((suggestionData) => suggestionData.category)),
+    ].map((tab) => {
+      // all active by default
+      return tab === 'all' ? { name: tab, active: true } : { name: tab, active: false };
+    });
+
+    setStatusCount({
       Planned: CollectObjectValues(requests, 'status', 'planned'),
       'In-Progress': CollectObjectValues(requests, 'status', 'in-progress'),
       Live: CollectObjectValues(requests, 'status', 'live'),
     });
+
+    setSuggestions(filteredSuggestions);
+    setUniqueCategories(filteredUniqueCategories);
   }, []);
 
   return (
@@ -33,7 +49,11 @@ function App() {
         <Switch>
           {/* Entry page for application - the home page */}
           <Route path='/' exact>
-            <Home suggestionsData={suggestions} roadmapCount={roadmapCount} />
+            <Home
+              suggestionsData={suggestions}
+              roadmapCount={statusCount}
+              uniqueCategories={uniqueCategories}
+            />
           </Route>
 
           {/* Roadmap page */}

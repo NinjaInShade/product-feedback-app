@@ -12,30 +12,12 @@ import '../styles/home.css';
 // TODO: Responsive view for no suggestions view
 // TODO: Look for optimisations and tidy code
 
-export default function Home({ suggestionsData, roadmapCount }) {
+export default function Home({ suggestionsData, roadmapCount, uniqueCategories }) {
   const [suggestions, setSuggestions] = useState(suggestionsData);
+  const [filterTabs, setFilterTabs] = useState(uniqueCategories);
   const [sortBy, setSortBy] = useState('Most Upvotes');
-  const [filterTabs, setFilterTabs] = useState();
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  // Gather up all unique tabs
-  useEffect(() => {
-    let uniqueTabs = [
-      'all',
-      ...new Set(suggestionsData.map((suggestionData) => suggestionData.category)),
-    ];
-
-    uniqueTabs = uniqueTabs.map((tab) => {
-      // all active by default
-      if (tab === 'all') {
-        return { name: tab, active: true };
-      }
-
-      return { name: tab, active: false };
-    });
-
-    setFilterTabs(uniqueTabs);
-  }, [suggestionsData]);
 
   const setSortByHandler = useCallback(
     (sortBySelected) => {
@@ -73,13 +55,9 @@ export default function Home({ suggestionsData, roadmapCount }) {
   };
 
   const updateSuggestionsHandler = (activeTab) => {
-    if (activeTab === 'all') {
-      return setSuggestions(suggestionsData);
-    }
-
-    return setSuggestions(
-      suggestionsData.filter((suggestion) => suggestion.category === activeTab)
-    );
+    return activeTab === 'all'
+      ? setSuggestions(suggestionsData)
+      : setSuggestions(suggestionsData.filter((suggestion) => suggestion.category === activeTab));
   };
 
   const updateSuggestionHandler = (updatedSuggestion) => {
