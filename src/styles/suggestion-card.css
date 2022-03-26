@@ -35,3 +35,52 @@
 .suggestion-card .main:focus h3 {
   color: var(--blue);
 }
+
+.upvote-btn.mobile {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .suggestion-card {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .suggestion-card > :nth-child(1) {
+    order: 3;
+  }
+
+  .suggestion-card > :nth-child(2) {
+    order: 1;
+  }
+
+  .suggestion-card > :nth-child(3) {
+    order: 2;
+  }
+
+  .upvote-btn.desktop {
+    display: none;
+  }
+
+  .upvote-btn.mobile {
+    display: inherit;
+  }
+
+  .suggestion-card .main p {
+    margin: 9px 0 8px 0;
+  }
+
+  .suggestion-card > * {
+    width: 100%;
+  }
+
+  .suggestion-card .main {
+    margin: 0 0 16px 0;
+  }
+
+  .comments-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

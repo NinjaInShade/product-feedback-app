@@ -8,13 +8,21 @@ import UpvoteBtn from './UpvoteBtn';
 export default function SuggestionCard({ suggestion, updateSuggestion }) {
   return (
     <div className='suggestion-card'>
-      <UpvoteBtn suggestion={suggestion} updateSuggestion={updateSuggestion} />
+      <UpvoteBtn suggestion={suggestion} updateSuggestion={updateSuggestion} className='desktop' />
       <Link className='main' to={`/feedback/detail/${suggestion.id}`}>
         <h3>{suggestion.title}</h3>
         <p className='body'>{suggestion.description}</p>
         <Tab title={suggestion.category} />
       </Link>
-      <CommentsCount count={suggestion.comments.length} />
+      <div className='comments-container'>
+        <UpvoteBtn
+          className='mobile'
+          suggestion={suggestion}
+          updateSuggestion={updateSuggestion}
+          direction='horizontal'
+        />
+        <CommentsCount count={suggestion.comments.length} />
+      </div>
     </div>
   );
 }

@@ -41,3 +41,13 @@
 .upvote-btn.upvoted:focus {
   outline: var(--grey-darkest) dotted 2px;
 }
+
+.upvote-btn.horizontal {
+  padding: 7px 14px;
+  flex-direction: row;
+  width: auto;
+}
+
+.upvote-btn.horizontal b {
+  margin: 0 0 0 10px;
+}

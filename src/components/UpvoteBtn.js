@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../styles/upvote-btn.css';
 
-export default function UpvoteBtn({ suggestion, updateSuggestion }) {
+export default function UpvoteBtn({ suggestion, updateSuggestion, className, direction }) {
   const updateSuggestionHandler = () => {
     if (suggestion.upvoted) {
       return updateSuggestion({ ...suggestion, upvoted: false, upvotes: suggestion.upvotes - 1 });
@@ -13,7 +13,9 @@ export default function UpvoteBtn({ suggestion, updateSuggestion }) {
 
   return (
     <button
-      className={`upvote-btn ${suggestion.upvoted ? 'upvoted' : ''}`}
+      className={`upvote-btn ${suggestion.upvoted ? 'upvoted' : ''} ${className ? className : ''} ${
+        direction ? 'horizontal' : ''
+      }`}
       onClick={updateSuggestionHandler}
     >
       <svg width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
