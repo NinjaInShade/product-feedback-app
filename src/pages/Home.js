@@ -5,6 +5,8 @@ import IllustrationEmpty from '../assets/suggestions/illustration-empty.svg';
 import SuggestionCard from '../components/SuggestionCard.js';
 import TabFilter from '../components/layout/TabFilter.js';
 import Roadmap from '../components/layout/Roadmap.js';
+import SidebarOpen from '../assets/shared/mobile/icon-hamburger.svg';
+import SidebarClose from '../assets/shared/mobile/icon-close.svg';
 import '../styles/home.css';
 
 // TODO: Responsive view for no suggestions view
@@ -14,6 +16,7 @@ export default function Home({ suggestionsData, roadmapCount }) {
   const [suggestions, setSuggestions] = useState(suggestionsData);
   const [sortBy, setSortBy] = useState('Most Upvotes');
   const [filterTabs, setFilterTabs] = useState();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Gather up all unique tabs
   useEffect(() => {
@@ -65,6 +68,10 @@ export default function Home({ suggestionsData, roadmapCount }) {
     setSortByHandler(sortBy);
   }, [suggestions, sortBy, setSortByHandler]);
 
+  const openSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   const updateSuggestionsHandler = (activeTab) => {
     if (activeTab === 'all') {
       return setSuggestions(suggestionsData);
@@ -91,6 +98,18 @@ export default function Home({ suggestionsData, roadmapCount }) {
             <h2 className='home-left-intro-title'>Frontend Mentor</h2>
             <p className='body-s home-left-intro-subtitle'>Feedback board</p>
           </div>
+          <button className='hamburger-btn' onClick={openSidebar}>
+            <img
+              src={SidebarOpen}
+              alt='Hamburger open sidebar icon'
+              className={`${!sidebarOpen && 'show'}`}
+            />
+            <img
+              src={SidebarClose}
+              alt='Hamburger close sidebar icon'
+              className={`${sidebarOpen && 'show'}`}
+            />
+          </button>
         </div>
         <TabFilter
           filterTabs={filterTabs}

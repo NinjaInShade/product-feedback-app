@@ -28,7 +28,7 @@
 }
 
 .home-right-nav-dropdown-btn span {
-  margin-right: 9px;
+  margin-right: 8px;
   font-weight: 700;
 }
 
@@ -104,4 +104,31 @@
 
 .home-right-nav-dropdown button.active svg {
   opacity: 1;
+}
+
+@media (max-width: 760px) {
+  .home-right-nav {
+    margin-bottom: 32px;
+    padding: 8px 24px;
+    border-radius: 0;
+  }
+
+  .home-right-nav-suggestions {
+    margin: 0 24px 0 0;
+  }
+
+  #suggestions-icon {
+    display: none;
+  }
+
+  .home-right-nav-dropdown {
+    width: 200px;
+    top: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .home-right-nav-suggestions {
+    display: none;
+  }
 }
