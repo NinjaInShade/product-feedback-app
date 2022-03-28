@@ -13,14 +13,14 @@ export default function Sidebar({
   return (
     <div className={`sidebar ${open && 'open'}`}>
       <div className='overlay'></div>
-      <nav className='content'>
+      <div className='content'>
         <TabFilter
           filterTabs={filterTabs}
           setFilterTabs={setFilterTabs}
           updateSuggestions={updateSuggestionsHandler}
         />
         <Roadmap roadmapCount={roadmapCount} />
-      </nav>
+      </div>
     </div>
   );
 }
