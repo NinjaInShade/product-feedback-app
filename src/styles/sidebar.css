@@ -1,0 +1,36 @@
+.sidebar .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  width: 100%;
+  z-index: 2;
+  right: 0;
+}
+
+.sidebar .overlay,
+.sidebar .content {
+  position: absolute;
+  transition: 0.2s ease-in-out;
+  height: calc(100% - 73px);
+  top: 73px;
+}
+
+.sidebar.open .overlay {
+  opacity: 1;
+}
+
+.sidebar .content {
+  background-color: var(--grey-light);
+  width: auto;
+  padding: 24px;
+  right: -100%;
+  z-index: 3;
+}
+
+.sidebar.open .content {
+  right: 0;
+}
+
+.sidebar .tab-filter {
+  max-width: 225px;
+  margin-bottom: 24px;
+}

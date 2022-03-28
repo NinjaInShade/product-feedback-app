@@ -7,6 +7,7 @@ import TabFilter from '../components/layout/TabFilter.js';
 import Roadmap from '../components/layout/Roadmap.js';
 import SidebarOpen from '../assets/shared/mobile/icon-hamburger.svg';
 import SidebarClose from '../assets/shared/mobile/icon-close.svg';
+import Sidebar from '../components/layout/Sidebar.js';
 import '../styles/home.css';
 
 // TODO: Responsive view for no suggestions view
@@ -70,71 +71,80 @@ export default function Home({ suggestionsData, roadmapCount, uniqueCategories }
   };
 
   return (
-    <div className='home'>
-      <section className='home-left'>
-        <div className='home-left-intro'>
-          <div>
-            <h2 className='home-left-intro-title'>Frontend Mentor</h2>
-            <p className='body-s home-left-intro-subtitle'>Feedback board</p>
-          </div>
-          <button className='hamburger-btn' onClick={openSidebar}>
-            <img
-              src={SidebarOpen}
-              alt='Hamburger open sidebar icon'
-              className={`${!sidebarOpen && 'show'}`}
-            />
-            <img
-              src={SidebarClose}
-              alt='Hamburger close sidebar icon'
-              className={`${sidebarOpen && 'show'}`}
-            />
-          </button>
-        </div>
-        <TabFilter
-          filterTabs={filterTabs}
-          setFilterTabs={setFilterTabs}
-          updateSuggestions={updateSuggestionsHandler}
-        />
-        <Roadmap roadmapCount={roadmapCount} />
-      </section>
-      <section className='home-right'>
-        <HomeMainNav
-          suggestionsCount={suggestions.length}
-          sortBy={sortBy}
-          setSortBy={setSortByHandler}
-        />
-        <main>
-          {suggestions.length > 0 ? (
-            <ul className='suggestions'>
-              {suggestions.map((suggestion) => {
-                return (
-                  <li key={suggestion.id}>
-                    <SuggestionCard
-                      suggestion={suggestion}
-                      updateSuggestion={updateSuggestionHandler}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
-          ) : (
-            <div className='home-no-feedback'>
-              <img
-                src={IllustrationEmpty}
-                alt='Detective looking through magnifying glass indicating no feedback (icon)'
-              />
-              <h1 className='home-no-feedback-title'>There is no feedback yet.</h1>
-              <p className='home-no-feedback-lead body'>
-                Got a suggestion? Found a bug that needs to be squashed? We love hearing about new
-                ideas to improve our app.
-              </p>
-              <Link to='/feedback/add' className='btn btn-primary'>
-                + Add Feedback
-              </Link>
+    <>
+      <Sidebar
+        open={sidebarOpen}
+        filterTabs={filterTabs}
+        setFilterTabs={setFilterTabs}
+        updateSuggestionsHandler={updateSuggestionsHandler}
+        roadmapCount={roadmapCount}
+      />
+      <div className='home'>
+        <section className='home-left'>
+          <div className='home-left-intro'>
+            <div>
+              <h2 className='home-left-intro-title'>Frontend Mentor</h2>
+              <p className='body-s home-left-intro-subtitle'>Feedback board</p>
             </div>
-          )}
-        </main>
-      </section>
-    </div>
+            <button className='hamburger-btn' onClick={openSidebar}>
+              <img
+                src={SidebarOpen}
+                alt='Hamburger open sidebar icon'
+                className={`${!sidebarOpen && 'show'}`}
+              />
+              <img
+                src={SidebarClose}
+                alt='Hamburger close sidebar icon'
+                className={`${sidebarOpen && 'show'}`}
+              />
+            </button>
+          </div>
+          <TabFilter
+            filterTabs={filterTabs}
+            setFilterTabs={setFilterTabs}
+            updateSuggestions={updateSuggestionsHandler}
+          />
+          <Roadmap roadmapCount={roadmapCount} />
+        </section>
+        <section className='home-right'>
+          <HomeMainNav
+            suggestionsCount={suggestions.length}
+            sortBy={sortBy}
+            setSortBy={setSortByHandler}
+          />
+          <main>
+            {suggestions.length > 0 ? (
+              <ul className='suggestions'>
+                {suggestions.map((suggestion) => {
+                  return (
+                    <li key={suggestion.id}>
+                      <SuggestionCard
+                        suggestion={suggestion}
+                        updateSuggestion={updateSuggestionHandler}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : (
+              <div className='home-no-feedback'>
+                <img
+                  src={IllustrationEmpty}
+                  alt='Detective looking through magnifying glass indicating no feedback (icon)'
+                />
+                <h1 className='home-no-feedback-title'>There is no feedback yet.</h1>
+                <p className='home-no-feedback-lead body'>
+                  Got a suggestion? Found a bug that needs to be squashed? We love hearing about new
+                  ideas to improve our app.
+                </p>
+                <Link to='/feedback/add' className='btn btn-primary'>
+                  + Add Feedback
+                </Link>
+              </div>
+            )}
+          </main>
+        </section>
+      </div>
+    </>
   );
 }
