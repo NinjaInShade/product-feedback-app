@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HomeMainNav from '../components/layout/HomeMainNav.js';
 import IllustrationEmpty from '../assets/suggestions/illustration-empty.svg';
@@ -19,49 +19,50 @@ export default function Home({ suggestionsData, roadmapCount, uniqueCategories }
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const setSortByHandler = useCallback(
-    (sortBySelected) => {
-      setSortBy(sortBySelected);
+  const setSortByHandler = (sortBySelected) => {
+    setSortBy(sortBySelected);
 
-      const newSuggestions = suggestions;
+    const sortedSuggestions = suggestions;
 
-      if (sortBySelected === 'Most Upvotes') {
-        newSuggestions.sort((a, b) => b.upvotes - a.upvotes);
-      }
+    switch (sortBySelected) {
+      case 'Most Upvotes':
+        sortedSuggestions.sort((a, b) => b.upvotes - a.upvotes);
+        break;
 
-      if (sortBySelected === 'Least Upvotes') {
-        newSuggestions.sort((a, b) => a.upvotes - b.upvotes);
-      }
+      case 'Least Upvotes':
+        sortedSuggestions.sort((a, b) => a.upvotes - b.upvotes);
+        break;
 
-      if (sortBySelected === 'Most Comments') {
-        newSuggestions.sort((a, b) => b.comments.length - a.comments.length);
-      }
+      case 'Most Comments':
+        sortedSuggestions.sort((a, b) => b.comments.length - a.comments.length);
+        break;
 
-      if (sortBySelected === 'Least Comments') {
-        newSuggestions.sort((a, b) => a.comments.length - b.comments.length);
-      }
+      case 'Least Comments':
+        sortedSuggestions.sort((a, b) => a.comments.length - b.comments.length);
+        break;
 
-      return setSuggestions(newSuggestions);
-    },
-    [suggestions]
-  );
+      default:
+        break;
+    }
 
-  useEffect(() => {
-    setSortByHandler(sortBy);
-  }, [suggestions, sortBy, setSortByHandler]);
+    return setSuggestions(sortedSuggestions);
+  };
 
   const openSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
   const updateSuggestionsHandler = (activeTab) => {
-    return activeTab === 'all'
+    activeTab === 'all'
       ? setSuggestions(suggestionsData)
       : setSuggestions(suggestionsData.filter((suggestion) => suggestion.category === activeTab));
+
+    // We want to keep the sort by filter activated. Filtering by tab resets this, so we counteract this
+    return setSortBy(sortBy);
   };
 
   const updateSuggestionHandler = (updatedSuggestion) => {
-    setSuggestions(
+    return setSuggestions(
       suggestions.map((suggestion) => {
         return suggestion.id === updatedSuggestion.id ? updatedSuggestion : suggestion;
       })
