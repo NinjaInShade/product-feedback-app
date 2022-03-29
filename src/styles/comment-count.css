@@ -12,5 +12,5 @@
 }
 
 .comments-count.empty b {
-  opacity: 50%;
+  opacity: 0.5;
 }
