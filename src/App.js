@@ -13,6 +13,7 @@ const Roadmap = lazy(() => import('./pages/Roadmap'));
 
 function App() {
   const [suggestions, setSuggestions] = useState([{}]);
+  const [roadmaps, setRoadmaps] = useState([{}]);
   const [uniqueCategories, setUniqueCategories] = useState([{}]);
   const [statusCount, setStatusCount] = useState({});
 
@@ -22,6 +23,10 @@ function App() {
 
     const filteredSuggestions = requests.filter(
       (productRequest) => productRequest.status === 'suggestion'
+    );
+
+    const filteredRoadmaps = requests.filter(
+      (productRequest) => productRequest.status !== 'suggestion'
     );
 
     const filteredUniqueCategories = [
@@ -40,6 +45,7 @@ function App() {
       Live: CollectObjectValues(requests, 'status', 'live'),
     });
 
+    setRoadmaps(filteredRoadmaps);
     setSuggestions(filteredSuggestions);
     setUniqueCategories(filteredUniqueCategories);
   }, []);
@@ -59,7 +65,7 @@ function App() {
 
           {/* Roadmap page */}
           <Route path='/roadmap' exact>
-            <Roadmap />
+            <Roadmap roadmapCount={statusCount} roadmapData={roadmaps} />
           </Route>
 
           {/* Feedback detail page */}

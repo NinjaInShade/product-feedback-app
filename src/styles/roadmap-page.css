@@ -1,0 +1,23 @@
+.roadmap {
+  padding: 78px 32px;
+}
+
+.roadmap .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.roadmap .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--grey-darkest);
+  border-radius: 10px;
+  padding: 27px 32px;
+  width: 100%;
+}
+
+.roadmap .header h1 {
+  color: #fff;
+  margin-top: 4px;
+}
