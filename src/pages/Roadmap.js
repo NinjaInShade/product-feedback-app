@@ -21,11 +21,12 @@ export default function Roadmap({ roadmapCount, roadmapData }) {
             + Add Feedback
           </Link>
         </header>
-        <main className='roadmap-status-container'>
+        <main className='roadmap-status-container desktop'>
           <StatusList count={roadmapCount.Planned} data={planned} />
           <StatusList count={roadmapCount['In-Progress']} data={inProgress} />
           <StatusList count={roadmapCount.Live} data={live} />
         </main>
+        <main className='roadmap-status-container mobile'></main>
       </div>
     </div>
   );

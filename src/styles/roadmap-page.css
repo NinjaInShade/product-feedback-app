@@ -23,13 +23,27 @@
   margin-top: 4px;
 }
 
-.roadmap-status-container {
+.roadmap-status-container.desktop {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 30px;
 }
 
+.roadmap-status-container.mobile {
+  display: none;
+}
+
 .roadmap-status-container > div {
   width: 100%;
+}
+
+@media (max-width: 760px) {
+  .roadmap-status-container.desktop {
+    display: none;
+  }
+
+  .roadmap-status-container.mobile {
+    display: block;
+  }
 }
