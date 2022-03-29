@@ -141,4 +141,26 @@
   .hamburger-btn .show {
     display: block;
   }
+
+  .home-no-feedback {
+    padding: 75px 24px;
+  }
+
+  .home-no-feedback-title,
+  .home-no-feedback-lead {
+    text-align: center;
+  }
+
+  .home-no-feedback-title {
+    margin: 40px 0 14px 0;
+  }
+
+  .home-no-feedback-lead {
+    margin-bottom: 24px;
+  }
+
+  .home-no-feedback img {
+    max-width: 100px;
+    width: 100%;
+  }
 }
