@@ -19,7 +19,8 @@
   top: 73px;
 }
 
-.sidebar.open .overlay {
+.sidebar.open .overlay,
+.sidebar:focus-within .overlay {
   pointer-events: all;
   opacity: 1;
 }
@@ -32,7 +33,8 @@
   z-index: 3;
 }
 
-.sidebar.open .content {
+.sidebar.open .content,
+.sidebar:focus-within .content {
   right: 0;
 }
 
@@ -43,6 +45,6 @@
 
 @media (max-width: 760px) {
   .sidebar {
-    display: block;
+    display: initial;
   }
 }
