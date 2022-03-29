@@ -8,12 +8,12 @@ import Roadmap from '../components/layout/Roadmap.js';
 import SidebarOpen from '../assets/shared/mobile/icon-hamburger.svg';
 import SidebarClose from '../assets/shared/mobile/icon-close.svg';
 import Sidebar from '../components/layout/Sidebar.js';
-import '../styles/home.css';
+import '../styles/suggestions.css';
 
 // TODO: Responsive view for no suggestions view
 // TODO: Look for optimisations and tidy code
 
-export default function Home({ suggestionsData, roadmapCount, uniqueCategories }) {
+export default function Suggestions({ suggestionsData, roadmapCount, uniqueCategories }) {
   const [suggestions, setSuggestions] = useState(suggestionsData);
   const [filterTabs, setFilterTabs] = useState(uniqueCategories);
   const [sortBy, setSortBy] = useState('Most Upvotes');

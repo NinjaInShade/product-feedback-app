@@ -8,7 +8,8 @@ import './styles/buttons.css';
 
 require('dotenv').config();
 
-const Home = lazy(() => import('./pages/Home'));
+const Suggestions = lazy(() => import('./pages/Suggestions'));
+const Roadmap = lazy(() => import('./pages/Roadmap'));
 
 function App() {
   const [suggestions, setSuggestions] = useState([{}]);
@@ -49,7 +50,7 @@ function App() {
         <Switch>
           {/* Entry page for application - the home page */}
           <Route path='/' exact>
-            <Home
+            <Suggestions
               suggestionsData={suggestions}
               roadmapCount={statusCount}
               uniqueCategories={uniqueCategories}
@@ -57,9 +58,9 @@ function App() {
           </Route>
 
           {/* Roadmap page */}
-          {/* <Route path='/roadmap' exact>
+          <Route path='/roadmap' exact>
             <Roadmap />
-          </Route> */}
+          </Route>
 
           {/* Feedback detail page */}
           {/* <Route path='/feedback/detail/:feedbackID' exact>
@@ -78,7 +79,7 @@ function App() {
 
           {/* 404 page not found route ( any routes not matching go back to home page ) */}
           <Route path='*'>
-            <Home />
+            <Suggestions />
           </Route>
         </Switch>
       </Suspense>
