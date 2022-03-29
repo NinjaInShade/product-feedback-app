@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import GoBack from '../components/GoBack.js';
+import StatusList from '../components/layout/StatusList.js';
 import '../styles/roadmap-page.css';
 
 export default function Roadmap({ roadmapCount, roadmapData }) {
-  console.log(roadmapData);
+  const planned = roadmapData.filter((data) => data.status === 'planned');
+  const inProgress = roadmapData.filter((data) => data.status === 'in-progress');
+  const live = roadmapData.filter((data) => data.status === 'live');
 
   return (
     <div className='roadmap-page'>
@@ -18,6 +21,11 @@ export default function Roadmap({ roadmapCount, roadmapData }) {
             + Add Feedback
           </Link>
         </header>
+        <main className='roadmap-status-container'>
+          <StatusList count={roadmapCount.Planned} data={planned} />
+          <StatusList count={roadmapCount['In-Progress']} data={inProgress} />
+          <StatusList count={roadmapCount.Live} data={live} />
+        </main>
       </div>
     </div>
   );

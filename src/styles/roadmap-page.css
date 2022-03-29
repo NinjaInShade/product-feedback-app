@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--grey-darkest);
+  margin-bottom: 48px;
   border-radius: 10px;
   padding: 27px 32px;
   width: 100%;
@@ -20,4 +21,15 @@
 .roadmap-page .header h1 {
   color: #fff;
   margin-top: 4px;
+}
+
+.roadmap-status-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.roadmap-status-container > div {
+  width: 100%;
 }
