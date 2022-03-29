@@ -22,3 +22,11 @@
 .go-back.white svg path {
   stroke: #cdd2ee;
 }
+
+.go-back:focus-visible {
+  outline: var(--grey-dark) dotted 2px;
+}
+
+.go-back.white:focus-visible {
+  outline: #fff dotted 2px;
+}
