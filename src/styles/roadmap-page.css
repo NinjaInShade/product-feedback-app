@@ -1,13 +1,13 @@
-.roadmap {
+.roadmap-page {
   padding: 78px 32px;
 }
 
-.roadmap .container {
+.roadmap-page .container {
   max-width: var(--max-width);
   margin: 0 auto;
 }
 
-.roadmap .header {
+.roadmap-page .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +17,7 @@
   width: 100%;
 }
 
-.roadmap .header h1 {
+.roadmap-page .header h1 {
   color: #fff;
   margin-top: 4px;
 }

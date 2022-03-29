@@ -7,7 +7,7 @@ export default function Roadmap({ roadmapCount, roadmapData }) {
   console.log(roadmapData);
 
   return (
-    <div className='roadmap'>
+    <div className='roadmap-page'>
       <div className='container'>
         <header className='header'>
           <div>
