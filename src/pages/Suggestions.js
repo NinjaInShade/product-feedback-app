@@ -11,8 +11,18 @@ import SidebarClose from '../assets/shared/mobile/icon-close.svg';
 import Sidebar from '../components/layout/Sidebar.js';
 import '../styles/suggestions.css';
 
-export default function Suggestions({ uniqueCategories }) {
+export default function Suggestions() {
   const [prodReqs] = useContext(ProdReqContext);
+
+  const uniqueCategories = [
+    'all',
+    'UI',
+    'UX',
+    ...new Set(prodReqs.map((data) => data.category)),
+  ].map((tab) => {
+    // all active by default
+    return tab === 'all' ? { name: tab, active: true } : { name: tab, active: false };
+  });
 
   // Local data for filtering/sorting
   const [suggestions, setSuggestions] = useState(

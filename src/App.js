@@ -1,5 +1,4 @@
-import React, { useContext, Suspense, lazy } from 'react';
-import { ProdReqContext } from './context/ProdReqContext';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import './styles/base.css';
@@ -13,25 +12,13 @@ const Suggestions = lazy(() => import('./pages/Suggestions'));
 const Roadmap = lazy(() => import('./pages/Roadmap'));
 
 function App() {
-  const [prodReqs] = useContext(ProdReqContext);
-
-  const uniqueCategories = [
-    'all',
-    'UI',
-    'UX',
-    ...new Set(prodReqs.map((data) => data.category)),
-  ].map((tab) => {
-    // all active by default
-    return tab === 'all' ? { name: tab, active: true } : { name: tab, active: false };
-  });
-
   return (
     <Router>
       <Suspense fallback={<LoadingSpinner />}>
         <Switch>
           {/* Entry page for application - the home page */}
           <Route path='/' exact>
-            <Suggestions uniqueCategories={uniqueCategories} />
+            <Suggestions />
           </Route>
 
           {/* Roadmap page */}
