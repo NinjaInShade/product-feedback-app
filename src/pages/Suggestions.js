@@ -13,8 +13,8 @@ import '../styles/suggestions.css';
 // TODO: Responsive view for no suggestions view
 // TODO: Look for optimisations and tidy code
 
-export default function Suggestions({ suggestionsData, roadmapCount, uniqueCategories }) {
-  const [suggestions, setSuggestions] = useState(suggestionsData);
+export default function Suggestions({ suggestionData, statusCount, uniqueCategories }) {
+  const [suggestions, setSuggestions] = useState(suggestionData);
   const [filterTabs, setFilterTabs] = useState(uniqueCategories);
   const [sortBy, setSortBy] = useState('Most Upvotes');
 
@@ -33,7 +33,6 @@ export default function Suggestions({ suggestionsData, roadmapCount, uniqueCateg
       case 'Least Upvotes':
         sortedSuggestions.sort((a, b) => a.upvotes - b.upvotes);
         break;
-
       case 'Most Comments':
         sortedSuggestions.sort((a, b) => b.comments.length - a.comments.length);
         break;
@@ -55,8 +54,8 @@ export default function Suggestions({ suggestionsData, roadmapCount, uniqueCateg
 
   const updateSuggestionsHandler = (activeTab) => {
     activeTab === 'all'
-      ? setSuggestions(suggestionsData)
-      : setSuggestions(suggestionsData.filter((suggestion) => suggestion.category === activeTab));
+      ? setSuggestions(suggestionData)
+      : setSuggestions(suggestionData.filter((suggestion) => suggestion.category === activeTab));
 
     // We want to keep the sort by filter activated. Filtering by tab resets this, so we counteract this
     return setSortBy(sortBy);
@@ -77,7 +76,7 @@ export default function Suggestions({ suggestionsData, roadmapCount, uniqueCateg
         filterTabs={filterTabs}
         setFilterTabs={setFilterTabs}
         updateSuggestionsHandler={updateSuggestionsHandler}
-        roadmapCount={roadmapCount}
+        roadmapCount={statusCount}
       />
       <div className='home'>
         <section className='home-left'>
@@ -104,7 +103,7 @@ export default function Suggestions({ suggestionsData, roadmapCount, uniqueCateg
             setFilterTabs={setFilterTabs}
             updateSuggestions={updateSuggestionsHandler}
           />
-          <Roadmap roadmapCount={roadmapCount} />
+          <Roadmap roadmapCount={statusCount} />
         </section>
         <section className='home-right'>
           <HomeMainNav

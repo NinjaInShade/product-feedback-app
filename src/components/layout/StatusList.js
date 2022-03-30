@@ -2,12 +2,12 @@ import React from 'react';
 import StatusCard from '../StatusCard.js';
 import '../../styles/status-list.css';
 
-export default function StatusList({ title, desc, count, data }) {
+export default function StatusList({ title, desc, data }) {
   return (
     <div>
       <div className='status-list-header'>
         <h3>
-          {title} ({count})
+          {title} ({data.length})
         </h3>
         <p className='body description'>{desc}</p>
       </div>

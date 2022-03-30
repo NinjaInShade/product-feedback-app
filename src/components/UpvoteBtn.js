@@ -5,10 +5,10 @@ import '../styles/upvote-btn.css';
 export default function UpvoteBtn({ suggestion, className, direction }) {
   const [prodReqs, setProdReqs] = useContext(ProdReqContext);
 
-  const updateData = (updatedData) => {
+  const updateData = (updatedProdReq) => {
     return setProdReqs(
       prodReqs.map((prodReq) => {
-        return prodReq.id === updatedData.id ? updatedData : prodReq;
+        return prodReq.id === updatedProdReq.id ? updatedProdReq : prodReq;
       })
     );
   };
