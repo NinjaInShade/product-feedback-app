@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import StatusIndicator from '../StatusIndicator.js';
 import '../../styles/roadmap.css';
 
 export default function Roadmap({ roadmapCount }) {
@@ -13,24 +14,15 @@ export default function Roadmap({ roadmapCount }) {
       </header>
       <ul className='status-list'>
         <li>
-          <div className='status-title-container'>
-            <div id='orange'></div>
-            <p className='body'>Planned</p>
-          </div>
+          <StatusIndicator title='Planned' />
           <p className='body status-count'>{roadmapCount.Planned}</p>
         </li>
         <li>
-          <div className='status-title-container'>
-            <div id='purple'></div>
-            <p className='body'>In-Progress</p>
-          </div>
+          <StatusIndicator title='In-Progress' />
           <p className='body status-count'>{roadmapCount['In-Progress']}</p>
         </li>
         <li>
-          <div className='status-title-container'>
-            <div id='blue'></div>
-            <p className='body'>Live</p>
-          </div>
+          <StatusIndicator title='Live' />
           <p className='body status-count'>{roadmapCount.Live}</p>
         </li>
       </ul>

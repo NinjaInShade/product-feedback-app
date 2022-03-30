@@ -1,0 +1,28 @@
+.status-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-indicator .circle {
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+}
+
+.status-indicator .title {
+  color: var(--grey-dark);
+  margin-left: 16px;
+}
+
+.status-indicator.planned .circle {
+  background-color: var(--orange);
+}
+
+.status-indicator.in-progress .circle {
+  background-color: var(--purple);
+}
+
+.status-indicator.live .circle {
+  background-color: var(--blue-light);
+}
