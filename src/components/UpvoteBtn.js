@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { ProdReqContext } from '../context/ProdReqContext';
 import '../styles/upvote-btn.css';
 
 export default function UpvoteBtn({ suggestion, className, direction }) {
   const [prodReqs, setProdReqs] = useContext(ProdReqContext);
+  const [active, setActive] = useState(suggestion.upvoted);
 
   const updateData = (updatedProdReq) => {
     return setProdReqs(
@@ -14,6 +15,8 @@ export default function UpvoteBtn({ suggestion, className, direction }) {
   };
 
   const updateSuggestionHandler = () => {
+    setActive(!active);
+
     if (suggestion.upvoted) {
       return updateData({ ...suggestion, upvoted: false, upvotes: suggestion.upvotes - 1 });
     }
@@ -23,7 +26,7 @@ export default function UpvoteBtn({ suggestion, className, direction }) {
 
   return (
     <button
-      className={`upvote-btn ${suggestion.upvoted ? 'upvoted' : ''} ${className ? className : ''} ${
+      className={`upvote-btn ${active ? 'upvoted' : ''} ${className ? className : ''} ${
         direction ? 'horizontal' : ''
       }`}
       onClick={updateSuggestionHandler}

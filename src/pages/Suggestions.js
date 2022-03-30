@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { ProdReqContext } from '../context/ProdReqContext.js';
 import { Link } from 'react-router-dom';
 import HomeMainNav from '../components/layout/HomeMainNav.js';
@@ -11,9 +11,6 @@ import SidebarClose from '../assets/shared/mobile/icon-close.svg';
 import Sidebar from '../components/layout/Sidebar.js';
 import '../styles/suggestions.css';
 
-// TODO: Responsive view for no suggestions view
-// TODO: Look for optimisations and tidy code
-
 export default function Suggestions({ uniqueCategories }) {
   const [prodReqs] = useContext(ProdReqContext);
 
@@ -21,12 +18,6 @@ export default function Suggestions({ uniqueCategories }) {
   const [suggestions, setSuggestions] = useState(
     prodReqs.filter((productRequest) => productRequest.status === 'suggestion')
   );
-
-  useEffect(() => {
-    setSuggestions(prodReqs.filter((productRequest) => productRequest.status === 'suggestion'));
-  }, [prodReqs]);
-
-  // TODO:SET SORT BY HANDLER SHOULD HAVE OPTIONAL PREV STATE?
 
   const [filterTabs, setFilterTabs] = useState(uniqueCategories);
   const [sortBy, setSortBy] = useState('Most Upvotes');
@@ -76,8 +67,8 @@ export default function Suggestions({ uniqueCategories }) {
           originalSuggestionData.filter((suggestion) => suggestion.category === activeTab)
         );
 
-    // We want to keep the sort by filter activated. Filtering by tab resets this, so we counteract this
-    // return setSortByHandler(sortBy);
+    // Sorting is automatically Most Upvotes, but the nav will display any previous selected sorting.
+    return setSortBy('Most Upvotes');
   };
 
   return (
