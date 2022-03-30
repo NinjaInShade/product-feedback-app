@@ -1,6 +1,6 @@
 import React from 'react';
 import TabFilter from './TabFilter.js';
-import Roadmap from './Roadmap.js';
+import RoadmapPanel from './RoadmapPanel.js';
 import '../../styles/sidebar.css';
 
 export default function Sidebar({
@@ -8,7 +8,7 @@ export default function Sidebar({
   filterTabs,
   setFilterTabs,
   updateSuggestionsHandler,
-  roadmapCount,
+  prodReqs,
 }) {
   return (
     <div className={`sidebar ${open && 'open'}`}>
@@ -19,7 +19,7 @@ export default function Sidebar({
           setFilterTabs={setFilterTabs}
           updateSuggestions={updateSuggestionsHandler}
         />
-        <Roadmap roadmapCount={roadmapCount} />
+        <RoadmapPanel prodReqs={prodReqs} />
       </div>
     </div>
   );

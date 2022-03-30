@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ProdReqContext } from '../context/ProdReqContext.js';
 import { Link } from 'react-router-dom';
 import HomeMainNav from '../components/layout/HomeMainNav.js';
 import IllustrationEmpty from '../assets/suggestions/illustration-empty.svg';
 import SuggestionCard from '../components/SuggestionCard.js';
 import TabFilter from '../components/layout/TabFilter.js';
-import Roadmap from '../components/layout/Roadmap.js';
+import RoadmapPanel from '../components/layout/RoadmapPanel.js';
 import SidebarOpen from '../assets/shared/mobile/icon-hamburger.svg';
 import SidebarClose from '../assets/shared/mobile/icon-close.svg';
 import Sidebar from '../components/layout/Sidebar.js';
@@ -13,8 +14,20 @@ import '../styles/suggestions.css';
 // TODO: Responsive view for no suggestions view
 // TODO: Look for optimisations and tidy code
 
-export default function Suggestions({ suggestionData, statusCount, uniqueCategories }) {
-  const [suggestions, setSuggestions] = useState(suggestionData);
+export default function Suggestions({ uniqueCategories }) {
+  const [prodReqs] = useContext(ProdReqContext);
+
+  // Local data for filtering/sorting
+  const [suggestions, setSuggestions] = useState(
+    prodReqs.filter((productRequest) => productRequest.status === 'suggestion')
+  );
+
+  useEffect(() => {
+    setSuggestions(prodReqs.filter((productRequest) => productRequest.status === 'suggestion'));
+  }, [prodReqs]);
+
+  // TODO:SET SORT BY HANDLER SHOULD HAVE OPTIONAL PREV STATE?
+
   const [filterTabs, setFilterTabs] = useState(uniqueCategories);
   const [sortBy, setSortBy] = useState('Most Upvotes');
 
@@ -53,20 +66,18 @@ export default function Suggestions({ suggestionData, statusCount, uniqueCategor
   };
 
   const updateSuggestionsHandler = (activeTab) => {
+    const originalSuggestionData = prodReqs.filter(
+      (productRequest) => productRequest.status === 'suggestion'
+    );
+
     activeTab === 'all'
-      ? setSuggestions(suggestionData)
-      : setSuggestions(suggestionData.filter((suggestion) => suggestion.category === activeTab));
+      ? setSuggestions(originalSuggestionData)
+      : setSuggestions(
+          originalSuggestionData.filter((suggestion) => suggestion.category === activeTab)
+        );
 
     // We want to keep the sort by filter activated. Filtering by tab resets this, so we counteract this
-    return setSortBy(sortBy);
-  };
-
-  const updateSuggestionHandler = (updatedSuggestion) => {
-    return setSuggestions(
-      suggestions.map((suggestion) => {
-        return suggestion.id === updatedSuggestion.id ? updatedSuggestion : suggestion;
-      })
-    );
+    // return setSortByHandler(sortBy);
   };
 
   return (
@@ -76,7 +87,7 @@ export default function Suggestions({ suggestionData, statusCount, uniqueCategor
         filterTabs={filterTabs}
         setFilterTabs={setFilterTabs}
         updateSuggestionsHandler={updateSuggestionsHandler}
-        roadmapCount={statusCount}
+        prodReqs={prodReqs}
       />
       <div className='home'>
         <section className='home-left'>
@@ -103,7 +114,7 @@ export default function Suggestions({ suggestionData, statusCount, uniqueCategor
             setFilterTabs={setFilterTabs}
             updateSuggestions={updateSuggestionsHandler}
           />
-          <Roadmap roadmapCount={statusCount} />
+          <RoadmapPanel prodReqs={prodReqs} />
         </section>
         <section className='home-right'>
           <HomeMainNav
@@ -117,10 +128,7 @@ export default function Suggestions({ suggestionData, statusCount, uniqueCategor
                 {suggestions.map((suggestion) => {
                   return (
                     <li key={suggestion.id}>
-                      <SuggestionCard
-                        suggestion={suggestion}
-                        updateSuggestion={updateSuggestionHandler}
-                      />
+                      <SuggestionCard suggestion={suggestion} />
                     </li>
                   );
                 })}

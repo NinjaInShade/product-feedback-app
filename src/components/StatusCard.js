@@ -18,7 +18,7 @@ export default function StatusCard({ data }) {
         <Tab title={data.category} />
       </Link>
       <div className='comments-container'>
-        <UpvoteBtn className='mobile' suggestion={data} direction='horizontal' />
+        <UpvoteBtn suggestion={data} direction='horizontal' />
         <CommentsCount count={data.comments.length} />
       </div>
     </div>
