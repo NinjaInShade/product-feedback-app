@@ -1,0 +1,12 @@
+.status-list-header {
+  margin-bottom: 32px;
+}
+
+.status-list-header h3 {
+  color: var(--grey-darker);
+}
+
+.status-list-header .description {
+  color: var(--grey-dark);
+  margin-top: 4px;
+}

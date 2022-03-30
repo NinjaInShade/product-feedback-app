@@ -22,9 +22,19 @@ export default function Roadmap({ roadmapCount, roadmapData }) {
           </Link>
         </header>
         <main className='roadmap-status-container desktop'>
-          <StatusList count={roadmapCount.Planned} data={planned} />
-          <StatusList count={roadmapCount['In-Progress']} data={inProgress} />
-          <StatusList count={roadmapCount.Live} data={live} />
+          <StatusList
+            count={roadmapCount.Planned}
+            data={planned}
+            title='Planned'
+            desc='Ideas prioritized for research'
+          />
+          <StatusList
+            count={roadmapCount['In-Progress']}
+            data={inProgress}
+            title='In-Progress'
+            desc='Currently being developed'
+          />
+          <StatusList count={roadmapCount.Live} data={live} title='Live' desc='Released features' />
         </main>
         <main className='roadmap-status-container mobile'></main>
       </div>
