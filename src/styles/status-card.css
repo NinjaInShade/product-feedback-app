@@ -11,9 +11,66 @@
 .status-card.planned {
   border-top: 6px solid var(--orange);
 }
+
 .status-card.in-progress {
   border-top: 6px solid var(--purple);
 }
+
 .status-card.live {
   border-top: 6px solid var(--blue-light);
+}
+
+.status-card .main {
+  transition: all 0.2s ease-in-out;
+  margin: 8px 0 16px 0;
+}
+
+.status-card .main:focus {
+  outline: var(--grey-dark) dotted 2px;
+}
+
+.status-card .main h3 {
+  color: var(--grey-darker);
+}
+
+.status-card .main p {
+  color: var(--grey-dark);
+  margin: 4px 0 16px 0;
+}
+
+.status-card .main:hover h3,
+.status-card .main:focus h3 {
+  color: var(--blue);
+}
+
+.comments-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 950px) {
+  .status-card {
+    padding: 20px;
+  }
+
+  .status-card .main {
+    margin-top: 14px;
+  }
+
+  .status-card .main h3,
+  .status-card .main p,
+  .status-card .status-indicator .title {
+    font-size: 0.813rem;
+    line-height: 19px;
+  }
+
+  .status-card .main h3 {
+    letter-spacing: -0.18px;
+  }
+
+  .status-card .main p {
+    margin: 11px 0 22px 0;
+  }
 }

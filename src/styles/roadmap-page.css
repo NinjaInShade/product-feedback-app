@@ -38,6 +38,12 @@
   width: 100%;
 }
 
+@media (max-width: 950px) {
+  .roadmap-status-container.desktop {
+    gap: 10px;
+  }
+}
+
 @media (max-width: 760px) {
   .roadmap-status-container.desktop {
     display: none;
