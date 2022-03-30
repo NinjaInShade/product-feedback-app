@@ -1,7 +1,11 @@
 .status-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   background-color: #fff;
   border-radius: 5px;
   padding: 31px;
+  width: 100%;
 }
 
 .status-card.planned {

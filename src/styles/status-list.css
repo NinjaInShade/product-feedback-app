@@ -11,6 +11,16 @@
   margin-top: 4px;
 }
 
-.status-list li:not(:last-child) {
+.status-card-list li:not(:last-child) {
   margin-bottom: 24px;
+}
+
+@media (max-width: 950px) {
+  .status-list-header {
+    margin-bottom: 24px;
+  }
+
+  .status-card-list li:not(:last-child) {
+    margin-bottom: 16px;
+  }
 }

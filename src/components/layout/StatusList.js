@@ -3,7 +3,6 @@ import StatusCard from '../StatusCard.js';
 import '../../styles/status-list.css';
 
 export default function StatusList({ title, desc, count, data }) {
-  console.log([count, data]);
   return (
     <div>
       <div className='status-list-header'>
@@ -12,7 +11,7 @@ export default function StatusList({ title, desc, count, data }) {
         </h3>
         <p className='body description'>{desc}</p>
       </div>
-      <ul className='status-list'>
+      <ul className='status-card-list'>
         {data.map((statusData) => {
           return (
             <li key={statusData.id}>
