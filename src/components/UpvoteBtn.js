@@ -1,14 +1,24 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import { ProdReqContext } from '../context/ProdReqContext';
 import '../styles/upvote-btn.css';
 
-export default function UpvoteBtn({ suggestion, updateSuggestion, className, direction }) {
+export default function UpvoteBtn({ suggestion, className, direction }) {
+  const [prodReqs, setProdReqs] = useContext(ProdReqContext);
+
+  const updateData = (updatedData) => {
+    return setProdReqs(
+      prodReqs.map((prodReq) => {
+        return prodReq.id === updatedData.id ? updatedData : prodReq;
+      })
+    );
+  };
+
   const updateSuggestionHandler = () => {
     if (suggestion.upvoted) {
-      return updateSuggestion({ ...suggestion, upvoted: false, upvotes: suggestion.upvotes - 1 });
+      return updateData({ ...suggestion, upvoted: false, upvotes: suggestion.upvotes - 1 });
     }
 
-    return updateSuggestion({ ...suggestion, upvoted: true, upvotes: suggestion.upvotes + 1 });
+    return updateData({ ...suggestion, upvoted: true, upvotes: suggestion.upvotes + 1 });
   };
 
   return (

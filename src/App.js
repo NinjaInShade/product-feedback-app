@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
+import { ProdReqProvider } from './context/ProdReqContext';
 import localData from './data.json';
 import CollectObjectValues from './util/CollectObjectValues.js';
 import './styles/base.css';
@@ -51,45 +52,47 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Suspense fallback={<LoadingSpinner />}>
-        <Switch>
-          {/* Entry page for application - the home page */}
-          <Route path='/' exact>
-            <Suggestions
-              suggestionsData={suggestions}
-              roadmapCount={statusCount}
-              uniqueCategories={uniqueCategories}
-            />
-          </Route>
+    <ProdReqProvider>
+      <Router>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Switch>
+            {/* Entry page for application - the home page */}
+            <Route path='/' exact>
+              <Suggestions
+                suggestionsData={suggestions}
+                roadmapCount={statusCount}
+                uniqueCategories={uniqueCategories}
+              />
+            </Route>
 
-          {/* Roadmap page */}
-          <Route path='/roadmap' exact>
-            <Roadmap roadmapCount={statusCount} roadmapData={roadmaps} />
-          </Route>
+            {/* Roadmap page */}
+            <Route path='/roadmap' exact>
+              <Roadmap roadmapCount={statusCount} roadmapData={roadmaps} />
+            </Route>
 
-          {/* Feedback detail page */}
-          {/* <Route path='/feedback/detail/:feedbackID' exact>
+            {/* Feedback detail page */}
+            {/* <Route path='/feedback/detail/:feedbackID' exact>
             <FeedbackDetail />
           </Route> */}
 
-          {/* Edit feedback page */}
-          {/* <Route path='/feedback/edit/:feedbackID' exact>
+            {/* Edit feedback page */}
+            {/* <Route path='/feedback/edit/:feedbackID' exact>
             <FeedbackEdit />
           </Route> */}
 
-          {/* Add new feedback page */}
-          {/* <Route path='/feedback/add' exact>
+            {/* Add new feedback page */}
+            {/* <Route path='/feedback/add' exact>
             <FeedbackAdd />
           </Route> */}
 
-          {/* 404 page not found route ( any routes not matching go back to home page ) */}
-          <Route path='*'>
-            <Suggestions />
-          </Route>
-        </Switch>
-      </Suspense>
-    </Router>
+            {/* 404 page not found route ( any routes not matching go back to home page ) */}
+            <Route path='*'>
+              <Suggestions />
+            </Route>
+          </Switch>
+        </Suspense>
+      </Router>
+    </ProdReqProvider>
   );
 }
 

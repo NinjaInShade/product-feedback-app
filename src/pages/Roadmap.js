@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import GoBack from '../components/GoBack.js';
 import StatusList from '../components/layout/StatusList.js';
+import { ProdReqContext } from '../context/ProdReqContext';
 import '../styles/roadmap-page.css';
 
 export default function Roadmap({ roadmapCount, roadmapData }) {
-  const planned = roadmapData.filter((data) => data.status === 'planned');
-  const inProgress = roadmapData.filter((data) => data.status === 'in-progress');
-  const live = roadmapData.filter((data) => data.status === 'live');
+  const [prodReqs] = useContext(ProdReqContext);
+
+  const planned = prodReqs.filter((data) => data.status === 'planned');
+  const inProgress = prodReqs.filter((data) => data.status === 'in-progress');
+  const live = prodReqs.filter((data) => data.status === 'live');
 
   return (
     <div className='roadmap-page'>

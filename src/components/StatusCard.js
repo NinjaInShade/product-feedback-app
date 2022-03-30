@@ -7,10 +7,6 @@ import Tab from './Tab.js';
 import '../styles/status-card.css';
 
 export default function StatusCard({ data }) {
-  const updateData = () => {
-    return;
-  };
-
   return (
     <div className={`status-card ${data.status}`}>
       {data.status === 'planned' && <StatusIndicator title='Planned' />}
@@ -22,12 +18,7 @@ export default function StatusCard({ data }) {
         <Tab title={data.category} />
       </Link>
       <div className='comments-container'>
-        <UpvoteBtn
-          className='mobile'
-          suggestion={data}
-          updateSuggestion={updateData}
-          direction='horizontal'
-        />
+        <UpvoteBtn className='mobile' suggestion={data} direction='horizontal' />
         <CommentsCount count={data.comments.length} />
       </div>
     </div>
