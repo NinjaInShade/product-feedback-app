@@ -10,3 +10,7 @@
   color: var(--grey-dark);
   margin-top: 4px;
 }
+
+.status-list li:not(:last-child) {
+  margin-bottom: 24px;
+}

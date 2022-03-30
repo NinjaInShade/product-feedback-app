@@ -1,0 +1,15 @@
+.status-card {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 31px;
+}
+
+.status-card.planned {
+  border-top: 6px solid var(--orange);
+}
+.status-card.in-progress {
+  border-top: 6px solid var(--purple);
+}
+.status-card.live {
+  border-top: 6px solid var(--blue-light);
+}
