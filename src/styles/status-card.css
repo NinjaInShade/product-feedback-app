@@ -43,7 +43,7 @@
   color: var(--blue);
 }
 
-.comments-container {
+.status-card .comments-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
