@@ -14,7 +14,7 @@ export default function SuggestionCard({ suggestion }) {
         <p className='body'>{suggestion.description}</p>
         <Tab title={suggestion.category} />
       </Link>
-      <div>
+      <div className='comments-container'>
         <UpvoteBtn className='mobile' suggestion={suggestion} direction='horizontal' />
         <CommentsCount count={suggestion.comments.length} />
       </div>
