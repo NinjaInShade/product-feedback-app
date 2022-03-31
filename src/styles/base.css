@@ -80,6 +80,7 @@
 body,
 html {
   background-color: var(--grey-light);
+  position: relative;
   overflow-x: hidden;
   min-height: 100vh;
 }
