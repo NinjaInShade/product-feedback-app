@@ -73,7 +73,7 @@
 
   .roadmap-status-container.mobile > div > div {
     animation-name: fadeIn;
-    animation-duration: 2.5s;
+    animation-duration: 2s;
   }
 
   .roadmap-status-container.mobile .status-list-header h3 {
