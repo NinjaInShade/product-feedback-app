@@ -32,6 +32,10 @@
   color: var(--grey-darker);
 }
 
+.status-nav-btn:focus-visible {
+  outline: var(--grey-darker) dotted 2px;
+}
+
 .status-nav-btn.active.planned {
   border-bottom: 4px solid var(--orange);
 }
