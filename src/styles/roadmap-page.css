@@ -1,5 +1,5 @@
 .roadmap-page {
-  padding: 78px 32px;
+  padding: 78px 40px;
 }
 
 .roadmap-page .container {
@@ -42,6 +42,10 @@
   .roadmap-status-container.desktop {
     gap: 10px;
   }
+
+  .roadmap-page {
+    padding: 56px 40px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -51,5 +55,40 @@
 
   .roadmap-status-container.mobile {
     display: block;
+  }
+
+  .roadmap-page {
+    padding: 0;
+  }
+
+  .roadmap-page .header {
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 24px;
+  }
+
+  .roadmap-status-container.mobile > div {
+    padding: 24px;
+  }
+
+  .roadmap-status-container.mobile > div > div {
+    animation-name: fadeIn;
+    animation-duration: 2.5s;
+  }
+
+  .roadmap-status-container.mobile .status-list-header h3 {
+    letter-spacing: -0.25px;
+    font-size: 1.125rem;
+    line-height: 26px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

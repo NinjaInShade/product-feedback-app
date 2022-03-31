@@ -133,9 +133,9 @@ button {
 @media (max-width: 760px) {
   :root {
     /* Typography */
-    /* --h1: 1.5rem; */
-    /* --h1-lh: 35px; */
-    /* --h1-ls: -0.33px; */
+    --h1: 1.125rem;
+    --h1-lh: 26px;
+    --h1-ls: -0.25px;
 
     --h2: 0.938rem;
     --h2-lh: 22px;

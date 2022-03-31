@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import GoBack from '../components/GoBack.js';
 import StatusList from '../components/layout/StatusList.js';
@@ -6,6 +6,7 @@ import { ProdReqContext } from '../context/ProdReqContext';
 import '../styles/roadmap-page.css';
 
 export default function Roadmap() {
+  const [statusShown, setStatusShown] = useState('in-progress');
   const [prodReqs] = useContext(ProdReqContext);
 
   const planned = prodReqs.filter((data) => data.status === 'planned');
@@ -29,7 +30,20 @@ export default function Roadmap() {
           <StatusList data={inProgress} title='In-Progress' desc='Currently being developed' />
           <StatusList data={live} title='Live' desc='Released features' />
         </main>
-        <main className='roadmap-status-container mobile'></main>
+        <main className='roadmap-status-container mobile'>
+          {/* <StatusNav /> */}
+          <div>
+            {statusShown === 'planned' && (
+              <StatusList data={planned} title='Planned' desc='Ideas prioritized for research' />
+            )}
+            {statusShown === 'in-progress' && (
+              <StatusList data={inProgress} title='In-Progress' desc='Currently being developed' />
+            )}
+            {statusShown === 'live' && (
+              <StatusList data={live} title='Live' desc='Released features' />
+            )}
+          </div>
+        </main>
       </div>
     </div>
   );
