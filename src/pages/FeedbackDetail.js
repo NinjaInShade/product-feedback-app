@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import GoBack from '../components/GoBack';
-import SuggestionCard from '../components/SuggestionCard';
 import { ProdReqContext } from '../context/ProdReqContext';
+import SuggestionCard from '../components/SuggestionCard';
+import AddComment from '../components/layout/AddComment';
+import GoBack from '../components/GoBack';
 import '../styles/feedback-detail.css';
 
 export default function FeedbackDetail() {
@@ -10,6 +11,10 @@ export default function FeedbackDetail() {
   const { feedbackID } = useParams();
 
   const currentProdReq = prodReqs.find((prodReq) => prodReq.id === parseInt(feedbackID));
+
+  console.log(currentProdReq);
+
+  const addComment = (comment) => {};
 
   return (
     <div className='feedback-detail'>
@@ -21,6 +26,10 @@ export default function FeedbackDetail() {
           </Link>
         </div>
         <SuggestionCard suggestion={currentProdReq} />
+        {/* <CommentsList comments={currentProdReq.comments}/> */}
+        {/* Just for spacing, havent made commentsList component yet */}
+        <div style={{ marginTop: '24px' }}></div>
+        <AddComment maxChars={255} postCommentHandler={addComment} />
       </div>
     </div>
   );

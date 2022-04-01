@@ -1,0 +1,21 @@
+.add-comment {
+  background-color: #fff;
+  padding: 24px 32px 32px 32px;
+  border-radius: 10px;
+}
+
+.add-comment .title {
+  color: var(--grey-darker);
+  margin-bottom: 24px;
+}
+
+.add-comment .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.add-comment .chars-left {
+  color: var(--grey-dark);
+}
