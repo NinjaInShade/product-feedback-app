@@ -5,9 +5,10 @@
   border: none;
   text-align: center;
   transition: background-color 0.2s ease-in-out;
+  padding: 12px 15px;
   border-radius: 10px;
   min-width: 160px;
-  padding: 10.5px 15px;
+  font-size: 14px;
 }
 
 .btn,
@@ -28,17 +29,22 @@
   outline: var(--purple-hover) dotted 2px;
 }
 
-@media (max-width: 950px) {
-  .btn {
-    font-size: 14px;
-    padding: 11px 15px;
-  }
+.btn-secondary {
+  background-color: var(--blue);
+}
+
+.btn-secondary:hover {
+  background-color: var(--blue-hover);
+}
+
+.btn-secondary:focus {
+  outline: var(--blue-hover) dotted 2px;
 }
 
 @media (max-width: 813px) {
   .btn {
-    min-width: 0;
-    padding: 11px 16px;
+    padding: 11px 15px;
     font-size: 13px;
+    min-width: 0;
   }
 }

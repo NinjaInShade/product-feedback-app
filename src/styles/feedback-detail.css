@@ -1,0 +1,15 @@
+.feedback-detail {
+  padding: 80px 40px;
+}
+
+.feedback-detail-container {
+  margin: 0 auto;
+  max-width: var(--max-width-s);
+  width: 100%;
+}
+
+.feedback-detail-container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -10,6 +10,7 @@ require('dotenv').config();
 
 const Suggestions = lazy(() => import('./pages/Suggestions'));
 const Roadmap = lazy(() => import('./pages/Roadmap'));
+const FeedbackDetail = lazy(() => import('./pages/FeedbackDetail'));
 
 function App() {
   return (
@@ -27,9 +28,9 @@ function App() {
           </Route>
 
           {/* Feedback detail page */}
-          {/* <Route path='/feedback/detail/:feedbackID' exact>
+          <Route path='/feedback/detail/:feedbackID' exact>
             <FeedbackDetail />
-          </Route> */}
+          </Route>
 
           {/* Edit feedback page */}
           {/* <Route path='/feedback/edit/:feedbackID' exact>
