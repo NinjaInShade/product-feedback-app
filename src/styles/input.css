@@ -1,0 +1,17 @@
+.input {
+  background-color: var(--grey-light);
+  color: var(--grey-darker);
+  border: none;
+  resize: none;
+  border-radius: 5px;
+  padding: 16px 24px;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--input-placeholder);
+}
+
+.input:focus {
+  outline: var(--blue) solid 1px;
+}
