@@ -12,6 +12,7 @@
 .go-back span {
   font-size: var(--h4);
   color: var(--grey-dark);
+  font-weight: 700;
   margin-left: 16px;
 }
 
