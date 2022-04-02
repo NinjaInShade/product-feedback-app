@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ProdReqContext } from '../context/ProdReqContext';
+import { UserContext } from '../context/UserContext';
 import SuggestionCard from '../components/SuggestionCard';
 import AddComment from '../components/layout/AddComment';
 import GoBack from '../components/GoBack';
@@ -8,6 +9,7 @@ import '../styles/feedback-detail.css';
 
 export default function FeedbackDetail() {
   const [prodReqs] = useContext(ProdReqContext);
+  const [currentUser] = useContext(UserContext);
   const { feedbackID } = useParams();
 
   const currentProdReq = prodReqs.find((prodReq) => prodReq.id === parseInt(feedbackID));
