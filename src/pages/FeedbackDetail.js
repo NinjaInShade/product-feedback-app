@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ProdReqContext } from '../context/ProdReqContext';
 import { UserContext } from '../context/UserContext';
@@ -8,15 +8,37 @@ import GoBack from '../components/GoBack';
 import '../styles/feedback-detail.css';
 
 export default function FeedbackDetail() {
-  const [prodReqs] = useContext(ProdReqContext);
+  const [prodReqs, setProdReqs] = useContext(ProdReqContext);
   const [currentUser] = useContext(UserContext);
   const { feedbackID } = useParams();
 
+  console.log(prodReqs);
+
   const currentProdReq = prodReqs.find((prodReq) => prodReq.id === parseInt(feedbackID));
 
-  console.log(currentProdReq);
+  useEffect(() => {
+    console.log(prodReqs);
+  }, [prodReqs]);
 
-  const addComment = (comment) => {};
+  const addComment = (comment) => {
+    setProdReqs(
+      prodReqs.map((prodReq) =>
+        prodReq.id === parseInt(feedbackID)
+          ? {
+              ...prodReq,
+              comments: [
+                ...prodReq.comments,
+                {
+                  id: prodReq.comments.length,
+                  content: comment,
+                  user: currentUser,
+                },
+              ],
+            }
+          : prodReq
+      )
+    );
+  };
 
   return (
     <div className='feedback-detail'>
