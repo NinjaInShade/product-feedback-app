@@ -36,7 +36,7 @@ Users should be able to:
 
   - Only product feedback requests with a status of `suggestion` should be shown on the Suggestions page.
 
-- Roadmap
+- (DONE) Roadmap
 
   - Feedback requests with a status of `planned`, `in-progress`, or `live` should show up on the roadmap, and should be placed in the correct column based on their status.
   - Columns should be ordered by upvote totals.

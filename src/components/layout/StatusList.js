@@ -12,13 +12,15 @@ export default function StatusList({ title, desc, data }) {
         <p className='body description'>{desc}</p>
       </div>
       <ul className='status-card-list'>
-        {data.map((statusData) => {
-          return (
-            <li key={statusData.id}>
-              <StatusCard data={statusData} />
-            </li>
-          );
-        })}
+        {data
+          .sort((a, b) => b.upvotes - a.upvotes)
+          .map((statusData) => {
+            return (
+              <li key={statusData.id}>
+                <StatusCard data={statusData} />
+              </li>
+            );
+          })}
       </ul>
     </div>
   );
