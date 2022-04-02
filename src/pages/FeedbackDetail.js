@@ -4,6 +4,7 @@ import { ProdReqContext } from '../context/ProdReqContext';
 import { UserContext } from '../context/UserContext';
 import SuggestionCard from '../components/SuggestionCard';
 import AddComment from '../components/layout/AddComment';
+import CommentsList from '../components/layout/CommentsList';
 import GoBack from '../components/GoBack';
 import '../styles/feedback-detail.css';
 
@@ -26,9 +27,7 @@ export default function FeedbackDetail() {
           </Link>
         </div>
         <SuggestionCard suggestion={currentProdReq} />
-        {/* <CommentsList comments={currentProdReq.comments}/> */}
-        {/* Just for spacing, havent made commentsList component yet */}
-        <div style={{ marginTop: '24px' }}></div>
+        <CommentsList comments={currentProdReq.comments} />
         <AddComment
           maxChars={255}
           prodReqs={prodReqs}

@@ -1,0 +1,23 @@
+.comments-list {
+  background-color: #fff;
+  padding: 24px 32px 32px 32px;
+  border-radius: 10px;
+  margin: 24px 0;
+}
+
+.comments-list .title {
+  color: var(--grey-darker);
+  margin-bottom: 28px;
+}
+
+.comment-divider {
+  /* input placeholder 25% opacity */
+  background-color: rgba(140, 146, 179, 0.25);
+  margin: 32px 0;
+  height: 1px;
+  width: 100%;
+}
+
+.comments-list ul li:not(:last-child) .comment-divider {
+  display: none;
+}
