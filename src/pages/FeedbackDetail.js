@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ProdReqContext } from '../context/ProdReqContext';
 import { UserContext } from '../context/UserContext';
@@ -16,30 +16,6 @@ export default function FeedbackDetail() {
 
   const currentProdReq = prodReqs.find((prodReq) => prodReq.id === parseInt(feedbackID));
 
-  useEffect(() => {
-    console.log(prodReqs);
-  }, [prodReqs]);
-
-  const addComment = (comment) => {
-    setProdReqs(
-      prodReqs.map((prodReq) =>
-        prodReq.id === parseInt(feedbackID)
-          ? {
-              ...prodReq,
-              comments: [
-                ...prodReq.comments,
-                {
-                  id: prodReq.comments.length,
-                  content: comment,
-                  user: currentUser,
-                },
-              ],
-            }
-          : prodReq
-      )
-    );
-  };
-
   return (
     <div className='feedback-detail'>
       <div className='feedback-detail-container'>
@@ -53,7 +29,13 @@ export default function FeedbackDetail() {
         {/* <CommentsList comments={currentProdReq.comments}/> */}
         {/* Just for spacing, havent made commentsList component yet */}
         <div style={{ marginTop: '24px' }}></div>
-        <AddComment maxChars={255} postCommentHandler={addComment} />
+        <AddComment
+          maxChars={255}
+          prodReqs={prodReqs}
+          setProdReqs={setProdReqs}
+          feedbackID={feedbackID}
+          currentUser={currentUser}
+        />
       </div>
     </div>
   );
