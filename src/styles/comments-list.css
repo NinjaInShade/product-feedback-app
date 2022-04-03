@@ -18,6 +18,6 @@
   width: 100%;
 }
 
-.comments-list ul li:not(:last-child) .comment-divider {
+.comments-list ul li:last-child .comment-divider {
   display: none;
 }
