@@ -4,7 +4,7 @@ import { UserContext } from '../context/UserContext';
 import ReplyBox from './ReplyBox';
 import '../styles/comment.css';
 
-export default function Comment({ comment, feedbackID }) {
+export default function Comment({ comment, commentID, feedbackID }) {
   const [prodReqs, setProdReqs] = useContext(ProdReqContext);
   const [currentUser] = useContext(UserContext);
 
@@ -25,7 +25,7 @@ export default function Comment({ comment, feedbackID }) {
           ? {
               ...prodReq,
               comments: prodReq.comments.map((commentInLoop) => {
-                return commentInLoop.id === comment.id
+                return commentInLoop.id === commentID
                   ? {
                       ...commentInLoop,
                       replies: [
