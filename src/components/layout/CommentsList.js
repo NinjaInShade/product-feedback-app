@@ -11,16 +11,15 @@ export default function CommentsList({ comments, feedbackID }) {
           return comment.replies ? (
             <li key={comment.id}>
               <Comment comment={comment} commentID={comment.id} feedbackID={feedbackID} />
-              {comment.replies.map((reply, index) => {
-                return (
-                  <Comment
-                    comment={reply}
-                    commentID={comment.id}
-                    feedbackID={feedbackID}
-                    key={index}
-                  />
-                );
-              })}
+              <ul className='replies-list'>
+                {comment.replies.map((reply, index) => {
+                  return (
+                    <li key={index}>
+                      <Comment comment={reply} commentID={comment.id} feedbackID={feedbackID} />
+                    </li>
+                  );
+                })}
+              </ul>
               <div className='comment-divider'></div>
             </li>
           ) : (

@@ -21,3 +21,11 @@
 .comments-list ul li:last-child .comment-divider {
   display: none;
 }
+
+.replies-list {
+  margin-left: 45px;
+}
+
+.replies-list li {
+  margin-top: 32px;
+}

@@ -43,8 +43,6 @@ export default function Comment({ comment, commentID, feedbackID }) {
     setShowReply(false);
   };
 
-  console.log(comment);
-
   return (
     <div className='comment'>
       <img
@@ -63,7 +61,10 @@ export default function Comment({ comment, commentID, feedbackID }) {
           </button>
         </div>
 
-        <p className='body-s comment-description'>{comment.content}</p>
+        <p className='body-s comment-description'>
+          {comment.replyingTo && <span className='replying-to'>@{comment.replyingTo} </span>}
+          {comment.content}
+        </p>
 
         <ReplyBox show={showReply} reply={reply} setReply={setReply} postReply={postReply} />
       </div>

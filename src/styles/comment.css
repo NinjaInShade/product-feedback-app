@@ -44,3 +44,8 @@
 .reply-btn:focus-visible {
   outline: var(--blue) dotted 2px;
 }
+
+.replying-to {
+  color: var(--purple);
+  font-weight: 700;
+}
