@@ -22,8 +22,6 @@ export default function Comment({ comment, commentID, feedbackID, replies }) {
     commentsReplies = replies;
   }
 
-  console.log(replies, commentID);
-
   const postReply = () => {
     // Post reply to comment with the correct ID
     if (reply.length < 1) return;
@@ -54,12 +52,15 @@ export default function Comment({ comment, commentID, feedbackID, replies }) {
 
   return (
     <div className='comment'>
+      {replies && <div className='reply-line'></div>}
+      {comment.replies && <div className='reply-line-top'></div>}
       <img
         className='avatar'
         src={`${comment.user.image.split('.')[1]}.jpg`}
         alt={`Photograph of ${comment.user.name}`}
+        style={replies ? { marginTop: '32px' } : {}}
       />
-      <div className='comment-main'>
+      <div className='comment-main' style={replies ? { marginTop: '32px' } : {}}>
         <div className='comment-top'>
           <div>
             <h4 className='name'>{comment.user.name}</h4>

@@ -1,7 +1,26 @@
 .comment {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
+  position: relative;
+}
+
+.reply-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  background-color: rgba(100, 113, 150, 0.1);
+  margin: 0 25px 0 20px;
+  width: 1px;
+}
+
+.reply-line-top {
+  position: absolute;
+  background-color: rgba(100, 113, 150, 0.1);
+  height: calc(100% - 64px);
+  width: 1px;
+  left: 20px;
+  top: 64px;
 }
 
 .avatar {
