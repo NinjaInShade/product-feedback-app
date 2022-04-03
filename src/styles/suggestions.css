@@ -77,9 +77,12 @@
 }
 
 @media (max-width: 950px) {
+  .home {
+    padding: 56px 40px;
+  }
+
   .home-container {
     flex-direction: column;
-    padding: 56px 40px;
   }
 
   .home-left {

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import ReplyBox from './ReplyBox';
 import '../styles/comment.css';
 
 export default function Comment({ comment, setComment }) {
   const [showReply, setShowReply] = useState(false);
+  const [reply, setReply] = useState('');
+
+  const postReply = () => {};
 
   console.log(comment);
 
@@ -26,7 +30,7 @@ export default function Comment({ comment, setComment }) {
 
         <p className='body-s comment-description'>{comment.content}</p>
 
-        {/* <ReplyBox show={showReply} setShow={setShowReply} /> */}
+        <ReplyBox show={showReply} reply={reply} setReply={setReply} postReply={postReply} />
       </div>
     </div>
   );

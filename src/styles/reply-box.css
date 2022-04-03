@@ -1,0 +1,27 @@
+.reply-box {
+  display: flex;
+  justify-content: stretch;
+  align-items: flex-start;
+  margin-top: 24px;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+}
+
+.reply-box input {
+  flex-grow: 1;
+}
+
+.reply-box .btn {
+  margin-left: 16px;
+  min-width: 120px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
