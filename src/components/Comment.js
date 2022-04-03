@@ -4,7 +4,7 @@ import { UserContext } from '../context/UserContext';
 import ReplyBox from './ReplyBox';
 import '../styles/comment.css';
 
-export default function Comment({ comment, commentID, feedbackID }) {
+export default function Comment({ comment, commentID, feedbackID, replies }) {
   const [prodReqs, setProdReqs] = useContext(ProdReqContext);
   const [currentUser] = useContext(UserContext);
 
@@ -13,7 +13,14 @@ export default function Comment({ comment, commentID, feedbackID }) {
   const [reply, setReply] = useState('');
 
   // A comment could have no replies, and that creates error in map down below if thats the case
-  const replies = comment.replies ? comment.replies : [];
+  let commentsReplies = comment.replies ? comment.replies : [];
+
+  // Replies is sent through if we are replying to another reply,
+  // as that comment doesn't have replies, the main comment does however, and we have access to it,
+  // so we pass through it's replies
+  if (replies) {
+    commentsReplies = replies;
+  }
 
   console.log(replies, commentID);
 
@@ -31,7 +38,7 @@ export default function Comment({ comment, commentID, feedbackID }) {
                   ? {
                       ...commentInLoop,
                       replies: [
-                        ...replies,
+                        ...commentsReplies,
                         { content: reply, replyingTo: comment.user.username, user: currentUser },
                       ],
                     }

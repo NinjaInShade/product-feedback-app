@@ -15,7 +15,12 @@ export default function CommentsList({ comments, feedbackID }) {
                 {comment.replies.map((reply, index) => {
                   return (
                     <li key={index}>
-                      <Comment comment={reply} commentID={comment.id} feedbackID={feedbackID} />
+                      <Comment
+                        comment={reply}
+                        replies={comment.replies}
+                        commentID={comment.id}
+                        feedbackID={feedbackID}
+                      />
                     </li>
                   );
                 })}
