@@ -15,6 +15,8 @@ export default function Comment({ comment, commentID, feedbackID }) {
   // A comment could have no replies, and that creates error in map down below if thats the case
   const replies = comment.replies ? comment.replies : [];
 
+  console.log(replies, commentID);
+
   const postReply = () => {
     // Post reply to comment with the correct ID
     if (reply.length < 1) return;

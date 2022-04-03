@@ -6,8 +6,6 @@ import './styles/buttons.css';
 
 require('dotenv').config();
 
-// TODO: USE CONTEXT IN SUGGESTIONS PAGE + COMPONENTS IN TREE WHERE APPROPRIATE. ROADMAP PAGE DONE.
-
 const Suggestions = lazy(() => import('./pages/Suggestions'));
 const Roadmap = lazy(() => import('./pages/Roadmap'));
 const FeedbackDetail = lazy(() => import('./pages/FeedbackDetail'));

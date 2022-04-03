@@ -24,7 +24,7 @@ export default function CommentsList({ comments, feedbackID }) {
             </li>
           ) : (
             <li key={comment.id}>
-              <Comment comment={comment} feedbackID={feedbackID} />
+              <Comment comment={comment} commentID={comment.id} feedbackID={feedbackID} />
               <div className='comment-divider'></div>
             </li>
           );
