@@ -1,14 +1,7 @@
 .comment {
   display: flex;
   justify-content: center;
-  align-items: stretch;
-}
-
-.avatar-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .avatar {
@@ -17,17 +10,37 @@
   width: 40px;
 }
 
-.comment.has-replies .avatar {
-  margin-bottom: 24px;
-}
-
-.replies-line {
-  /* grey dark 10% opacity */
-  background-color: rgba(100, 113, 150, 0.1);
-  height: 100%;
-  width: 1px;
-}
-
 .comment-main {
+  margin-left: 32px;
   flex-grow: 1;
+}
+
+.comment-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.comment-top .name {
+  color: var(--grey-darker);
+}
+
+.comment-top .username,
+.comment-description {
+  color: var(--grey-dark);
+}
+
+.reply-btn {
+  cursor: pointer;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.reply-btn:hover {
+  text-decoration: underline;
+}
+
+.reply-btn:focus-visible {
+  outline: var(--blue) dotted 2px;
 }
