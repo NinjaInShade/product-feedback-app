@@ -27,7 +27,7 @@ export default function FeedbackDetail() {
           </Link>
         </div>
         <SuggestionCard suggestion={currentProdReq} />
-        <CommentsList comments={currentProdReq.comments} />
+        <CommentsList comments={currentProdReq.comments} feedbackID={feedbackID} />
         <AddComment
           maxChars={255}
           prodReqs={prodReqs}
