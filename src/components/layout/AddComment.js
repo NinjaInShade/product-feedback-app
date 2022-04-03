@@ -5,6 +5,7 @@ import '../../styles/add-comment.css';
 export default function AddComment({ maxChars, prodReqs, setProdReqs, currentUser, feedbackID }) {
   const [comment, setComment] = useState('');
 
+  // A comment ID is set using the last comments ID plus 1
   const addComment = (comment) => {
     setProdReqs(
       prodReqs.map((prodReq) =>
@@ -14,7 +15,7 @@ export default function AddComment({ maxChars, prodReqs, setProdReqs, currentUse
               comments: [
                 ...prodReq.comments,
                 {
-                  id: prodReq.comments.length,
+                  id: prodReq.comments[prodReq.comments.length - 1].id + 1,
                   content: comment,
                   user: currentUser,
                 },
