@@ -7,6 +7,9 @@
 
 .comments-list .title {
   color: var(--grey-darker);
+  font-size: 1.125rem;
+  line-height: 26px;
+  letter-spacing: -0.25px;
   margin-bottom: 28px;
 }
 
@@ -20,4 +23,18 @@
 
 .comments-list ul li:last-child .comment-divider {
   display: none;
+}
+
+@media (max-width: 760px) {
+  .comments-list {
+    padding: 24px;
+  }
+
+  .comments-list .title {
+    margin-bottom: 24px;
+  }
+
+  .comment-divider {
+    margin: 24px 0;
+  }
 }
