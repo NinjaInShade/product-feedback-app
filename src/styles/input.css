@@ -15,3 +15,9 @@
 .input:focus {
   outline: var(--blue) solid 1px;
 }
+
+@media (max-width: 760px) {
+  .input {
+    padding: 16px 16px 27px 16px;
+  }
+}

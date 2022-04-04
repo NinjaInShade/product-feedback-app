@@ -14,3 +14,15 @@
   align-items: center;
   margin-bottom: 24px;
 }
+
+@media (max-width: 950px) {
+  .feedback-detail {
+    padding: 56px 40px;
+  }
+}
+
+@media (max-width: 760px) {
+  .feedback-detail {
+    padding: 24px;
+  }
+}

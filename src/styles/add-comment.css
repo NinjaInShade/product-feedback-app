@@ -19,3 +19,9 @@
 .add-comment .chars-left {
   color: var(--grey-dark);
 }
+
+@media (max-width: 760px) {
+  .add-comment {
+    padding: 24px;
+  }
+}
