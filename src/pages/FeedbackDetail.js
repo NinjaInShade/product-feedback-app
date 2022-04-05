@@ -22,7 +22,7 @@ export default function FeedbackDetail() {
       <div className='feedback-detail-container'>
         <div className='header'>
           <GoBack />
-          <Link to={`/feedback/edit/${feedbackID}`} className='btn btn-secondary'>
+          <Link to='/feedback/add/' className='btn btn-secondary'>
             + Add Feedback
           </Link>
         </div>
