@@ -10,6 +10,7 @@ const Suggestions = lazy(() => import('./pages/Suggestions'));
 const Roadmap = lazy(() => import('./pages/Roadmap'));
 const FeedbackDetail = lazy(() => import('./pages/FeedbackDetail'));
 const FeedbackAdd = lazy(() => import('./pages/FeedbackAdd'));
+const FeedbackEdit = lazy(() => import('./pages/FeedbackEdit'));
 
 function App() {
   return (
@@ -32,9 +33,9 @@ function App() {
           </Route>
 
           {/* Edit feedback page */}
-          {/* <Route path='/feedback/edit/:feedbackID' exact>
+          <Route path='/feedback/edit/:feedbackID' exact>
             <FeedbackEdit />
-          </Route> */}
+          </Route>
 
           {/* Add new feedback page */}
           <Route path='/feedback/add' exact>

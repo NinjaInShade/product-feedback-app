@@ -1,0 +1,20 @@
+.feedback-form-outer {
+  padding: 92px 24px;
+}
+
+.feedback-form-container {
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+@media (max-width: 950px) {
+  .feedback-form-outer {
+    padding: 56px 24px;
+  }
+}
+
+@media (max-width: 760px) {
+  .feedback-form-outer {
+    padding: 32px 24px;
+  }
+}

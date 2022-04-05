@@ -13,8 +13,6 @@ export default function FeedbackDetail() {
   const [currentUser] = useContext(UserContext);
   const { feedbackID } = useParams();
 
-  console.log(prodReqs);
-
   const currentProdReq = prodReqs.find((prodReq) => prodReq.id === parseInt(feedbackID));
 
   return (
@@ -22,8 +20,8 @@ export default function FeedbackDetail() {
       <div className='feedback-detail-container'>
         <div className='header'>
           <GoBack />
-          <Link to='/feedback/add/' className='btn btn-secondary'>
-            + Add Feedback
+          <Link to={`/feedback/edit/${currentProdReq.id}`} className='btn btn-secondary'>
+            Edit Feedback
           </Link>
         </div>
         <SuggestionCard suggestion={currentProdReq} />
