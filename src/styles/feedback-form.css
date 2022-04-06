@@ -62,4 +62,19 @@
   .feedback-form .buttons .btn {
     width: 100%;
   }
+
+  .feedback-form {
+    padding: 0 24px 24px 24px;
+  }
+
+  .feedback-form .icon {
+    margin-top: -20px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .feedback-form .title,
+  .feedback-form.edit .title {
+    margin: 24px 0;
+  }
 }
