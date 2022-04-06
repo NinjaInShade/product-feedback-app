@@ -8,7 +8,7 @@ export default function FeedbackEdit() {
     <div className='feedback-form-outer'>
       <div className='feedback-form-container'>
         <GoBack />
-        <FeedbackForm />
+        <FeedbackForm edit={true} />
       </div>
     </div>
   );

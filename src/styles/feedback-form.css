@@ -1,0 +1,42 @@
+.feedback-form {
+  background-color: #fff;
+  padding: 0 42px 42px 42px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.feedback-form .icon {
+  margin-top: -28px;
+  height: 56px;
+  width: 56px;
+}
+
+.feedback-form .title {
+  color: var(--grey-darker);
+  margin: 24px 0 40px 0;
+}
+
+.feedback-form.edit .title {
+  margin: 24px 0 75px 0;
+}
+
+.feedback-form .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedback-form .buttons > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.feedback-form.edit .buttons > div {
+  justify-content: flex-end;
+}
+
+.feedback-form .buttons .btn {
+  min-width: 0;
+}

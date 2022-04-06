@@ -5,7 +5,7 @@
   border: none;
   text-align: center;
   transition: background-color 0.2s ease-in-out;
-  padding: 12px 15px;
+  padding: 12px 24px;
   border-radius: 10px;
   min-width: 160px;
   font-size: 14px;
@@ -41,9 +41,33 @@
   outline: var(--blue-hover) dotted 2px;
 }
 
+.btn-tertiary {
+  background-color: var(--grey-darker);
+}
+
+.btn-tertiary:hover {
+  background-color: var(--grey-darker-hover);
+}
+
+.btn-tertiary:focus {
+  outline: var(--grey-darker-hover) dotted 2px;
+}
+
+.btn-danger {
+  background-color: var(--red);
+}
+
+.btn-danger:hover {
+  background-color: var(--red-hover);
+}
+
+.btn-danger:focus {
+  outline: var(--red-hover) dotted 2px;
+}
+
 @media (max-width: 813px) {
   .btn {
-    padding: 11px 15px;
+    padding: 11px 24px;
     font-size: 13px;
     min-width: 0;
   }
