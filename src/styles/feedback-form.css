@@ -24,6 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 32px;
 }
 
 .feedback-form .buttons > div {
@@ -39,4 +40,26 @@
 
 .feedback-form .buttons .btn {
   min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .feedback-form .buttons {
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 16px;
+  }
+
+  .feedback-form.edit .buttons {
+    flex-direction: column-reverse;
+  }
+
+  .feedback-form .buttons > div {
+    flex-direction: column-reverse;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .feedback-form .buttons .btn {
+    width: 100%;
+  }
 }

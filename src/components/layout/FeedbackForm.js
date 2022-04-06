@@ -23,7 +23,7 @@ export default function FeedbackForm({ edit, feedback }) {
         {edit && <button className='btn btn-danger'>Delete</button>}
         <div>
           <button className='btn btn-tertiary'>Cancel</button>
-          <button className='btn btn-primary'>Add Feedback</button>
+          <button className='btn btn-primary'>{edit ? 'Save Changes' : 'Add Feedback'}</button>
         </div>
       </div>
     </form>
