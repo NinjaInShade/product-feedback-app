@@ -22,9 +22,13 @@
 
 .feedback-form .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-top: 32px;
+}
+
+.feedback-form.edit .buttons {
+  justify-content: space-between;
 }
 
 .feedback-form .buttons > div {
