@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import IconNewFeedback from '../../assets/shared/icon-new-feedback.svg';
 import IconEditFeedback from '../../assets/shared/icon-edit-feedback.svg';
@@ -6,12 +6,27 @@ import InputGroup from '../InputGroup';
 import '../../styles/feedback-form.css';
 
 export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
+  const [feedbackTitle, setFeedbackTitle] = useState('');
+  const [feedbackTitleError, setFeedbackTitleError] = useState('');
+
   let history = useHistory();
 
   const navigateBack = (e) => {
     e.preventDefault();
 
     history.goBack();
+  };
+
+  const validateEmpty = (value) => {
+    return !value || value.length < 1;
+  };
+
+  const validateFeedbackTitle = (value) => {
+    setFeedbackTitleError('');
+
+    if (validateEmpty(value)) setFeedbackTitleError("Can't be empty");
+
+    setFeedbackTitle(value);
   };
 
   return (
@@ -29,7 +44,16 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
       )}
 
       {/* INPUTS */}
-      <InputGroup />
+      <InputGroup
+        label='Feedback Title'
+        description='Add a short, descriptive headline'
+        ID='feedback-title'
+        value={feedbackTitle}
+        setValue={validateFeedbackTitle}
+        maxLength={255}
+        type='text'
+        error={feedbackTitleError}
+      />
       {/* <InputGroup /> */}
       {/* {edit && <InputGroup />} */}
       {/* <InputGroup /> */}

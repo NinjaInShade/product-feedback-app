@@ -17,5 +17,6 @@
 }
 
 .input-group .error {
+  color: var(--red);
   margin-top: 4px;
 }
