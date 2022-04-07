@@ -8,12 +8,20 @@
   width: 100%;
 }
 
+.input.text {
+  padding: 13px 24px;
+}
+
 .input::placeholder {
   color: var(--input-placeholder);
 }
 
 .input:focus {
   outline: var(--blue) solid 1px;
+}
+
+.input.error {
+  outline: var(--red) solid 1px;
 }
 
 @media (max-width: 760px) {
