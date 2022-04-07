@@ -46,6 +46,11 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
     setFeedbackDetail(value);
   };
 
+  // TODO: MAKE FORM + CHILD COMPONENTS RESPONSIVE
+  // IMPLEMENT ADD FEEDBACK
+  // IMPLEMENT DELETE FEEDBACK
+  // IMPLEMENT EDIT FEEDBACK
+
   return (
     <form className={`feedback-form ${edit ? 'edit' : ''}`}>
       {edit ? (
