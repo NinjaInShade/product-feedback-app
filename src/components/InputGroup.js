@@ -12,6 +12,7 @@ export default function InputGroup({
   maxLength,
   type,
   error,
+  dropdownSelections,
 }) {
   return (
     <div className='input-group'>
@@ -28,6 +29,7 @@ export default function InputGroup({
         name={ID}
         ID={ID}
         error={error}
+        dropdownSelections={dropdownSelections}
       />
       {error && <small className='error'>{error}</small>}
     </div>

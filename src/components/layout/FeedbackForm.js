@@ -5,9 +5,18 @@ import IconEditFeedback from '../../assets/shared/icon-edit-feedback.svg';
 import InputGroup from '../InputGroup';
 import '../../styles/feedback-form.css';
 
+const categorySelections = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug'];
+const statusSelections = ['Suggestion', 'Planned', 'In-Progress', 'Live'];
+
 export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
-  const [feedbackTitle, setFeedbackTitle] = useState('');
+  const [feedbackTitle, setFeedbackTitle] = useState(feedback ? feedback.title : '');
   const [feedbackTitleError, setFeedbackTitleError] = useState('');
+
+  const [feedbackDetail, setFeedbackDetail] = useState(feedback ? feedback.description : '');
+  const [feedbackDetailError, setFeedbackDetailError] = useState('');
+
+  const [feedbackCategory, setFeedbackCategory] = useState(feedback ? feedback.category : '');
+  const [feedbackStatus, setFeedbackStatus] = useState(feedback ? feedback.status : '');
 
   let history = useHistory();
 
@@ -27,6 +36,14 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
     if (validateEmpty(value)) setFeedbackTitleError("Can't be empty");
 
     setFeedbackTitle(value);
+  };
+
+  const validateFeedbackDetail = (value) => {
+    setFeedbackDetailError('');
+
+    if (validateEmpty(value)) setFeedbackDetailError("Can't be empty");
+
+    setFeedbackDetail(value);
   };
 
   return (
@@ -54,9 +71,36 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
         type='text'
         error={feedbackTitleError}
       />
-      {/* <InputGroup /> */}
-      {/* {edit && <InputGroup />} */}
-      {/* <InputGroup /> */}
+      <InputGroup
+        label='Category'
+        description='Choose a category for your feedback'
+        ID='feedback-category'
+        value={feedbackCategory}
+        setValue={setFeedbackCategory}
+        type='dropdown'
+        dropdownSelections={categorySelections}
+      />
+      {edit && (
+        <InputGroup
+          label='Update Status'
+          description='Change feature state'
+          ID='feedback-status'
+          value={feedbackStatus}
+          setValue={setFeedbackStatus}
+          type='dropdown'
+          dropdownSelections={statusSelections}
+        />
+      )}
+      <InputGroup
+        label='Feedback Detail'
+        description='Include any specific comments on what should be improved, added, etc.'
+        ID='feedback-detail'
+        value={feedbackDetail}
+        setValue={validateFeedbackDetail}
+        maxLength={255}
+        type='textarea'
+        error={feedbackDetailError}
+      />
 
       <div className='buttons'>
         {edit && (

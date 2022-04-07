@@ -1,7 +1,16 @@
 import React from 'react';
 import '../styles/input.css';
 
-export default function Input({ value, setValue, placeholderText, maxLength, ID, type, error }) {
+export default function Input({
+  value,
+  setValue,
+  placeholderText,
+  maxLength,
+  ID,
+  type,
+  error,
+  dropdownSelections,
+}) {
   return (
     <>
       {type === 'text' && (
