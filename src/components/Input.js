@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/input.css';
 
-export default function Input({ value, setValue, placeholderText, maxLength }) {
+export default function Input({ value, setValue, placeholderText, maxLength, ID, type, error }) {
   return (
     <textarea
       type='text'
@@ -10,6 +10,8 @@ export default function Input({ value, setValue, placeholderText, maxLength }) {
       placeholder={placeholderText}
       value={value}
       onChange={(e) => setValue(e.target.value)}
+      name={ID}
+      id={ID}
     />
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import IconNewFeedback from '../../assets/shared/icon-new-feedback.svg';
 import IconEditFeedback from '../../assets/shared/icon-edit-feedback.svg';
+import InputGroup from '../InputGroup';
 import '../../styles/feedback-form.css';
 
 export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
@@ -26,7 +27,12 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
       ) : (
         <h1 className='title'>Create New Feedback</h1>
       )}
+
       {/* INPUTS */}
+      <InputGroup />
+      {/* <InputGroup /> */}
+      {/* {edit && <InputGroup />} */}
+      {/* <InputGroup /> */}
 
       <div className='buttons'>
         {edit && (

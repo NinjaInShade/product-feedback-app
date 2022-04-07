@@ -1,0 +1,35 @@
+import React from 'react';
+import '../styles/input-group.css';
+import Input from './Input';
+
+export default function InputGroup({
+  label,
+  description,
+  ID,
+  value,
+  setValue,
+  placeholderText,
+  maxLength,
+  type,
+  error,
+}) {
+  return (
+    <div className='input-group'>
+      <label for={ID} className='label'>
+        {label}
+      </label>
+      <p className='description'>{description}</p>
+      <Input
+        value={value}
+        setValue={setValue}
+        placeholderText={placeholderText}
+        maxLength={maxLength}
+        type={type}
+        name={ID}
+        ID={ID}
+        error={error}
+      />
+      {error && <small className='error'>{error}</small>}
+    </div>
+  );
+}

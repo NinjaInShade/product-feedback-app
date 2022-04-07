@@ -46,6 +46,10 @@
   min-width: 0;
 }
 
+.feedback-form .input-group:not(:last-child) {
+  margin-bottom: 24px;
+}
+
 @media (max-width: 760px) {
   .feedback-form .buttons {
     flex-direction: column;
