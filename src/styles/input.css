@@ -24,6 +24,92 @@
   outline: var(--red) solid 1px;
 }
 
+.dropdown-outer {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-btn svg.active {
+  transition: 0.1s ease-in-out;
+  transform: rotate(180deg);
+}
+
+.dropdown-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  background-color: var(--grey-light);
+  color: var(--grey-darker);
+  padding: 13px 24px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.dropdown-btn:hover,
+.dropdown-btn:focus-visible {
+  outline: var(--blue) solid 1px;
+}
+
+.dropdown {
+  position: absolute;
+  overflow: hidden;
+  background-color: #fff;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+  box-shadow: 0 10px 40px -7px hsla(230, 31%, 31%, 0.35);
+  z-index: 2;
+  border-radius: 10px;
+  width: 100%;
+  opacity: 0;
+  top: 66px;
+  left: 0;
+}
+
+.dropdown.active,
+.dropdown:focus-within {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.dropdown:focus-visible {
+  outline: var(--grey-dark) dotted 2px;
+}
+
+.dropdown li {
+  width: 100%;
+}
+
+.dropdown li:not(:last-child) {
+  border-bottom: 1px solid var(--grey-darker-15);
+}
+
+.dropdown button {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--grey-dark);
+  width: 100%;
+  padding: 12px 24px;
+}
+
+.dropdown button:hover,
+.dropdown button:focus {
+  color: var(--purple);
+}
+
+.dropdown button svg {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.dropdown button.active svg {
+  opacity: 1;
+}
+
 @media (max-width: 760px) {
   .input {
     padding: 16px 16px 27px 16px;
