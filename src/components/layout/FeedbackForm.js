@@ -15,8 +15,12 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
   const [feedbackDetail, setFeedbackDetail] = useState(feedback ? feedback.description : '');
   const [feedbackDetailError, setFeedbackDetailError] = useState('');
 
-  const [feedbackCategory, setFeedbackCategory] = useState(feedback ? feedback.category : '');
-  const [feedbackStatus, setFeedbackStatus] = useState(feedback ? feedback.status : '');
+  const [feedbackCategory, setFeedbackCategory] = useState(
+    feedback ? feedback.category : categorySelections[0]
+  );
+  const [feedbackStatus, setFeedbackStatus] = useState(
+    feedback ? feedback.status : statusSelections[0]
+  );
 
   let history = useHistory();
 
@@ -46,7 +50,25 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
     setFeedbackDetail(value);
   };
 
-  // TODO: MAKE FORM + CHILD COMPONENTS RESPONSIVE
+  const onDeleteHandler = (e) => {
+    e.preventDefault();
+
+    // TODO: DELETE HANDLER (PASS FEEDBACK ID)
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+
+    if (validateEmpty(feedbackTitle)) {
+      return setFeedbackTitleError("Can't be empty");
+    }
+    if (validateEmpty(feedbackDetail)) {
+      return setFeedbackDetailError("Can't be empty");
+    }
+
+    onSubmit({ title: feedbackTitle, description: feedbackDetail, category: feedbackCategory });
+  };
+
   // IMPLEMENT ADD FEEDBACK
   // IMPLEMENT DELETE FEEDBACK
   // IMPLEMENT EDIT FEEDBACK
@@ -109,7 +131,7 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
 
       <div className='buttons'>
         {edit && (
-          <button className='btn btn-danger' onClick={(e) => onDelete(e)}>
+          <button className='btn btn-danger' onClick={(e) => onDeleteHandler(e)}>
             Delete
           </button>
         )}
@@ -117,7 +139,7 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
           <button className='btn btn-tertiary' onClick={(e) => navigateBack(e)}>
             Cancel
           </button>
-          <button className='btn btn-primary' onClick={(e) => onSubmit(e)}>
+          <button className='btn btn-primary' onClick={(e) => onSubmitHandler(e)}>
             {edit ? 'Save Changes' : 'Add Feedback'}
           </button>
         </div>

@@ -75,7 +75,7 @@ export default function Input({
           <ul className={`dropdown ${dropdownOpen ? 'active' : undefined}`} tabIndex='0'>
             {dropdownSelections.map((selection) => {
               return (
-                <li>
+                <li key={selection}>
                   <button
                     className={`body ${
                       value.toLowerCase() === selection.toLowerCase() ? 'active' : undefined

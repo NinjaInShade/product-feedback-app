@@ -16,7 +16,7 @@ export default function InputGroup({
 }) {
   return (
     <div className='input-group'>
-      <label for={ID} className='label'>
+      <label htmlFor={ID} className='label'>
         {label}
       </label>
       <p className='description'>{description}</p>
