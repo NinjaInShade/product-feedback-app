@@ -56,10 +56,20 @@ Users should be able to:
 ### Screenshot
 
 ![](./screenshots/desktop-suggestions.png)
+![](./screenshots/desktop-roadmap.png)
+![](./screenshots/desktop-feedback-detail.png)
+![](./screenshots/desktop-edit-feedback.png)
 
 ![](./screenshots/tablet-suggestions.png)
+![](./screenshots/tablet-roadmap.png)
+![](./screenshots/tablet-feedback-detail.png)
+![](./screenshots/tablet-edit-feedback.png)
 
 ![](./screenshots/mobile-suggestions.png)
+![](./screenshots/mobile-roadmap.png)
+![](./screenshots/mobile-feedback-detail.png)
+![](./screenshots/mobile-edit-feedback.png)
+![](./screenshots/mobile-edit-feedback-active.png)
 
 ### Links
 
