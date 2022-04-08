@@ -16,7 +16,7 @@ export default function FeedbackAdd() {
     setProdReqs([
       ...prodReqs,
       {
-        id: prodReqs.length + 1,
+        id: prodReqs[prodReqs.length - 1].id + 1,
         title: feedback.title,
         category: feedback.category.toLowerCase(),
         upvotes: 0,

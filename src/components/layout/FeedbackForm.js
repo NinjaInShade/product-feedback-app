@@ -69,7 +69,6 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
     onSubmit({ title: feedbackTitle, description: feedbackDetail, category: feedbackCategory });
   };
 
-  // IMPLEMENT ADD FEEDBACK
   // IMPLEMENT DELETE FEEDBACK
   // IMPLEMENT EDIT FEEDBACK
 
