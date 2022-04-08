@@ -55,13 +55,16 @@ Users should be able to:
 
 ### Screenshot
 
-<!-- ![](./screenshots/Desktop_solution.png) -->
-<!-- ![](./screenshots/Mobile_solution.png) -->
+![](./screenshots/desktop-suggestions.png)
+
+![](./screenshots/tablet-suggestions.png)
+
+![](./screenshots/mobile-suggestions.png)
 
 ### Links
 
-<!-- - Solution URL: (https://www.frontendmentor.io/solutions/responsive-order-summary-card-TFXa8ZDRV) -->
-<!-- - Live Site URL: (https://lm-order-summary-component.netlify.app/) -->
+- Solution URL: (https://www.frontendmentor.io/solutions/responsive-product-feedback-app-w-react-local-storage-contextapi-HyOodiaX5)
+- Live Site URL: (https://lm-product-feedback-app.netlify.app/)
 
 ## My process
 
