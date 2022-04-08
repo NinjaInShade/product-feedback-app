@@ -50,12 +50,6 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
     setFeedbackDetail(value);
   };
 
-  const onDeleteHandler = (e) => {
-    e.preventDefault();
-
-    // TODO: DELETE HANDLER (PASS FEEDBACK ID)
-  };
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -130,7 +124,7 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
 
       <div className='buttons'>
         {edit && (
-          <button className='btn btn-danger' onClick={(e) => onDeleteHandler(e)}>
+          <button className='btn btn-danger' onClick={() => onDelete()} type='button'>
             Delete
           </button>
         )}
