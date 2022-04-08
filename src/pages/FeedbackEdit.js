@@ -21,7 +21,22 @@ export default function FeedbackEdit() {
   };
 
   const editFeedbackHandler = (updatedFeedback) => {
-    // history.goBack()
+    console.log(updatedFeedback);
+    setProdReqs(
+      prodReqs.map((prodReq) =>
+        prodReq.id === parseInt(feedbackID)
+          ? {
+              ...prodReq,
+              title: updatedFeedback.title,
+              category: updatedFeedback.category,
+              status: updatedFeedback.status,
+              description: updatedFeedback.description,
+            }
+          : prodReq
+      )
+    );
+
+    history.goBack();
   };
 
   return (

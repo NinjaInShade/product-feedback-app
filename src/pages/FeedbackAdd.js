@@ -18,10 +18,10 @@ export default function FeedbackAdd() {
       {
         id: prodReqs[prodReqs.length - 1].id + 1,
         title: feedback.title,
-        category: feedback.category.toLowerCase(),
+        category: feedback.category,
         upvotes: 0,
         upvoted: false,
-        status: 'suggestion',
+        status: feedback.status,
         description: feedback.description,
         comments: [],
       },

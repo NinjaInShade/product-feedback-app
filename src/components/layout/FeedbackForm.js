@@ -18,9 +18,7 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
   const [feedbackCategory, setFeedbackCategory] = useState(
     feedback ? feedback.category : categorySelections[0]
   );
-  const [feedbackStatus, setFeedbackStatus] = useState(
-    feedback ? feedback.status : statusSelections[0]
-  );
+  const [feedbackStatus, setFeedbackStatus] = useState(feedback ? feedback.status : 'suggestion');
 
   let history = useHistory();
 
@@ -60,7 +58,12 @@ export default function FeedbackForm({ edit, feedback, onDelete, onSubmit }) {
       return setFeedbackDetailError("Can't be empty");
     }
 
-    onSubmit({ title: feedbackTitle, description: feedbackDetail, category: feedbackCategory });
+    onSubmit({
+      title: feedbackTitle,
+      description: feedbackDetail,
+      category: feedbackCategory.toLowerCase(),
+      status: feedbackStatus.toLowerCase(),
+    });
   };
 
   // IMPLEMENT DELETE FEEDBACK
