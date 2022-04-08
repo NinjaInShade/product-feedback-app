@@ -20,3 +20,12 @@
   color: var(--red);
   margin-top: 4px;
 }
+
+@media (max-width: 760px) {
+  .input-group .label,
+  .input-group .description,
+  .input-group .error {
+    font-size: 0.8125rem;
+    line-height: 19px;
+  }
+}
