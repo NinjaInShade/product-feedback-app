@@ -36,6 +36,7 @@ export default function AddComment({ maxChars, prodReqs, setProdReqs, currentUse
         setValue={setComment}
         placeholderText='Type your comment here'
         maxLength={maxChars}
+        type='textarea'
       />
       <div className='bottom'>
         <small className='body-s chars-left'>{maxChars - comment.length} characters left</small>

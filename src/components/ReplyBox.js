@@ -11,6 +11,7 @@ export default function ReplyBox({ show, reply, setReply, postReply }) {
           setValue={setReply}
           maxLength={255}
           placeholderText='Type your reply here'
+          type='textarea'
         />
         <button className='btn btn-primary' onClick={postReply}>
           Post Reply
