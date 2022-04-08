@@ -27,7 +27,7 @@ Users should be able to:
 - (DONE) Filter suggestions by category
 - (DONE) Add comments and replies to a product feedback request
 - (DONE) Upvote product feedback requests
-- Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+- (DONE) Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
 ### Expected Behaviour
 
