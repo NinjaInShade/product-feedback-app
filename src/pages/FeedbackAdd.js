@@ -1,18 +1,33 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import GoBack from '../components/GoBack';
 import FeedbackForm from '../components/layout/FeedbackForm';
 import { ProdReqContext } from '../context/ProdReqContext';
-import { UserContext } from '../context/UserContext';
 import '../styles/feedback-add.css';
 
 export default function FeedbackAdd() {
   const [prodReqs, setProdReqs] = useContext(ProdReqContext);
-  const [currentUser] = useContext(UserContext);
+
+  let history = useHistory();
 
   const addFeedbackHandler = (feedback) => {
     // We get this this obj:
     // { title: "", description: "", category: "" }
-    console.log(feedback);
+    setProdReqs([
+      ...prodReqs,
+      {
+        id: prodReqs.length + 1,
+        title: feedback.title,
+        category: feedback.category.toLowerCase(),
+        upvotes: 0,
+        upvoted: false,
+        status: 'suggestion',
+        description: feedback.description,
+        comments: [],
+      },
+    ]);
+
+    history.goBack();
   };
 
   return (
